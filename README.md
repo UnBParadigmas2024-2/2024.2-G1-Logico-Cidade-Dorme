@@ -1,75 +1,110 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2023.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague esses comentários)
-
-# NomeDoProjeto
+# ParaDigaMais
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo**: 01<br>
+**Paradigma**: Lógico<br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
 
-## Sobre 
-Descreva o seu projeto em linhas gerais. 
-Use referências, links, que permitam conhecer um pouco mais sobre o projeto.
-Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no projeto.
+| Matrícula  | Aluno                          |
+| ---------- | ------------------------------ |
+| 20/0056981 | Arthur Ferreira Rodrigues      |
+| 19/0084600 | Arthur José Nascimento de Lima |
+| 19/0134224 | Artur Seppa Reiman             |
+| 19/0084731 | Augusto Duraes Camargo         |
+| 20/2015948 | Breno Henrique de Souza        |
+| 22/2014984 | Edilberto Almeida Cantuaria    |
+| 18/0121308 | Giulia Domingues de Alcantara  |
+| 17/0034941 | Guilherme Peixoto Lima         |
+| 18/0042041 | Gustavo Barbosa de Oliveira    |
+| 20/0069322 | Samuel Alves Sato              |
+
+## O que é um paradigma lógico
+
+O paradigma lógico é O paradigma lógico é um estilo de programação baseado na lógica matemática. Nele, o programador define **regras lógicas** e **relações entre elementos**, especificando as condições que devem ser verdadeiras para resolver um problema. O sistema, então, **deduz automaticamente a solução** com base nessas regras, em vez de seguir uma sequência de comandos. Prolog é a principal linguagem associada a esse paradigma, sendo amplamente utilizada em áreas como **inteligência artificial** e **processamento de linguagem natural**. [1]
+
+Aprenda mais sobre o Paradigma Lógico [aqui](documentacao/vantagens_desvantagens.md)
+
+## Sobre o Projeto
+
+Este projeto visa desenvolver um sistema de 
+
+### Relação do Paradigma Lógico com o Projeto
+
+teste
+
+### Por que optamos por um sistema de ?
+
+Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos-escolha-do-projeto.md)
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
-## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+### Fluxograma do Projeto
 
-## Uso 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
+- OBS: Para maior detalhamento de cada funcionalidade, acesse [esse link](documentacao/passoapasso-uso.md)
+
+## Manual
+
+### Instalação
+
+**Linguagens**: <br>
+**Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
+
+- Para instalação do projeto, acesse [esse link](documentacao/passoapassoinstalacao.md) e leia o passo a passo.
+
+### Uso
+
+### Manual
+
+**Principais Comandos**: `comando` ; 
+
+#### Como usar o projeto
+
+- Para conseguir rodar o projeto, acesse [esse link](documentacao/passoapasso-uso.md)
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
-Procure: 
-(i) Introduzir o projeto;
-(ii) Mostrar passo a passo o código, explicando-o, e deixando claro o que é de terceiros, e o que é contribuição real da equipe;
-(iii) Apresentar particularidades do Paradigma, da Linguagem, e das Tecnologias, e
-(iV) Apresentar lições aprendidas, contribuições, pendências, e ideias para trabalhos futuros.
-OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
-TEMPO: +/- 15min
+
+Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 ## Participações
-Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
-|Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios (ex. links para commits)
+
+| Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios |
 | -- | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa | Commit tal (com link)
+| Arthur Ferreira |  - | - | - |
+| Arthur José |  - | - | - |
+| Artur Seppa Reiman |  - | - | - |
+| Augusto Duraes |  - | - | - |                                                                                                                                        
+| Breno |  - | - | - |
+| Giulia | - | - | - |      
+| Gustavo Barbosa | - | - | - |      
+| Guilherme Peixoto | - | - | - |                                                                                                                  
+| Samuel | - | - | - |                                                                               
 
-## Outros 
-Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
-(i) Lições Aprendidas;
-(ii) Percepções;
-(iii) Contribuições e Fragilidades, e
-(iV) Trabalhos Futuros.
+## Outros
 
+### Lições Aprendidas
+
+- 
+
+### Percepções
+
+- 
+
+### Contribuições e Fragilidades
+
+- Contribuições: 
+- Fragilidades:
+
+### Trabalhos Futuros
+
+A análise do projeto em questão revela a necessidade de aprimoramentos tanto em termos de usabilidade quanto de arquitetura.
+
+- 
+Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Haskell:
+
+- 
 ## Fontes
-Referencie, adequadamente, as referências utilizadas.
-Indique ainda sobre fontes de leitura complementares.
+
+[1] Segue a referência no formato ABNT para a fonte mencionada:
+
+**TRIPLETEN.** Paradigmas de programação: o que são e quais os principais? *TripleTen*, [s.d.]. Disponível em: <https://tripleten.com.br/blog/paradigmas-de-programacao-o-que-sao-e-quais-os-principais/#:~:text=Al%C3%A9m%20do%20paradigma%20imperativo%20e,a%20partir%20das%20informa%C3%A7%C3%B5es%20fornecidas>. Acesso em: 18 nov. 2024.
