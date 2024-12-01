@@ -13,3 +13,10 @@ distribuir_funcoes([Pessoa | Rest]) :-
     ;   Number =:= 3 -> assertz(medico(Pessoa))
     ),
     distribuir_funcoes(Rest).
+
+/* Verifica se tem pelo menos 1 funcao de cada */
+verificar_funcoes :-
+    (   cidadao(_), mafioso(_), medico(_)
+    ->  true
+    ;   write('Desculpe houve uma falha ao distribuir funcoes, tente novamente '), nl
+    ).
