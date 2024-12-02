@@ -56,11 +56,13 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Manual
 
-**Principais Comandos**: `comando` ; 
-
 #### Como usar o projeto
 
-- Para conseguir rodar o projeto, acesse [esse link](documentacao/passoapasso-uso.md)
+Primeiramente certifique-se de que está com Prolog instalado.
+
+**Para rodar o projeto basta entrar no swipl**: `swipl` ; 
+
+**Carregue o arquivo setup.pl pelo comando**: `[setup].` ;
 
 ## Vídeo
 
@@ -71,7 +73,7 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 | Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios |
 | -- | -- | -- | -- |
 | Arthur Ferreira |  - | - | - |
-| Arthur José |  - | - | - |
+| Arthur José |  Setup inicial, Regras para ler linhas de um arquivo, Distribuir papeis e lugares para cada pessoa aleatóriamente, Regra para um mafioso matar alguém e para mostrar pessoas e seus locais de origem   | - | - |
 | Artur Seppa Reiman |  - | - | - |
 | Augusto Duraes |  - | - | - |                                                                                                                                        
 | Breno |  - | - | - |
