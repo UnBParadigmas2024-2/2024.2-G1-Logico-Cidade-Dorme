@@ -20,3 +20,16 @@ verificar_funcoes :-
     ->  true
     ;   write('Desculpe houve uma falha ao distribuir funcoes, tente novamente '), nl
     ).
+
+/* Remove as criacoes e tenta gerar novamente as funcoes até que tenha 1 de cada*/
+distribuir_e_verificar(Pessoas) :-
+    retractall(cidadao(_)),
+    retractall(mafioso(_)),
+    retractall(anjo(_)),
+    retractall(detetive(_)),
+    distribuir_funcoes(Pessoas),
+    (   verificar_funcoes
+    ->  true
+    ;   write('Funcoes distribuidas incorretamente. Tentando novamente...'), nl,
+        distribuir_e_verificar(Pessoas)
+    ).
