@@ -1,10 +1,10 @@
-% Estado inicial dos jogadores (todos vivos e acusados)
-jogador(arthur_ferreira, vivo, acusado).
-jogador(arthur_jose, vivo, acusado).
-jogador(artur_seppa, vivo, acusado).
-jogador(augusto_duraes, vivo, acusado).
-jogador(breno, vivo, acusado).
-jogador(giulia, vivo, acusada).
-jogador(gustavo_barbosa, vivo, acusado).
-jogador(guilherme_peixoto, vivo, acusado).
-jogador(samuel, vivo, acusado).
+arthur_ferreira
+arthur_jose
+artur_seppa
+augusto_duraes
+breno
+edilberto
+giulia
+gustavo_barbosa
+guilherme_peixoto
+samuel

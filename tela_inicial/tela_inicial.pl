@@ -35,10 +35,22 @@ mostrar_regras :-
     write('=============================='), nl,
     write(''), nl.
 
+escolher_assassino_mensagem() :-
+    (bagof(A, assassino(A), [Assassino | _]) ; Assassino = 'Desconhecido'),
+    format('Milene: ~w Escolha alguém para matar!!!~n', [Assassino]).
+
 /* Iniciar Jogo */
 iniciar_jogo :- 
+    write(''), nl,
     write('=============================='), nl,
-    write('Iniciando o jogo... Todos fechem os olhos !!!'), nl,
+    write('Milene: Noite 1...Todos fechem os olhos !!!'), nl,
     write('=============================='), nl,
-    carregar_papeis.  % Não precisamos mais chamar mostrar_papeis aqui
-
+    carregar_papeis,  % Não precisamos mais chamar mostrar_papeis aqui
+    write(''), nl,
+    write('=============================='), nl,
+    write('Milene: Noite 2... Todos fechem os olhos !!!'), nl,
+    write('=============================='), nl,
+    escolher_assassino_mensagem,
+    write(''), nl,
+    write('=============================='), nl,
+    mostrar_vivos_exceto_assassinos.
