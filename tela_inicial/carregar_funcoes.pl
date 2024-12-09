@@ -1,47 +1,40 @@
 :- dynamic cidadao/1, assassino/1, anjo/1, detetive/1.
 
-carregar_pessoas_como_cidadao() :- 
+/* Função principal para carregar pessoas, atribuir papéis e exibir os resultados */
+carregar_papeis() :-
     file_lines('tela_inicial/pessoas_predefinidas.txt', Pessoas),
-    atribuir_todos_cidadaos(Pessoas).
+    distribuir_papeis(Pessoas),
+    mostrar_papeis().  % Mostra os papéis atribuídos após carregamento
 
-/* Carrega pessoas e define funcoes predefinidos */
-carregar_funcoes() :-
-    file_lines('tela_inicial/pessoas_predefinidas.txt', Pessoas),
-    distribuir_funcoes_removendo_cidadaos(Pessoas).
+/* Lê o arquivo e distribui os papéis */
+distribuir_papeis(Pessoas) :-
+    random_permutation(Pessoas, PessoasEmbaralhadas), % Embaralha as pessoas
+    distribuir_papeis_aleatorios(PessoasEmbaralhadas).
 
-/* Carrega pessoas como cidadao */
-atribuir_todos_cidadaos([Pessoa | Rest]) :-
-    assertz(cidadao(Pessoa)), 
-    atribuir_todos_cidadaos(Rest).
-
-/* remove cidadaos, cria um vetor de pessoas aleatorio e chama distribuir_funcoes_aux*/
-distribuir_funcoes_removendo_cidadaos(Pessoas) :-
+/* Atribui os papéis aleatoriamente */
+distribuir_papeis_aleatorios([Anjo, Detetive, Assassino | Restantes]) :-
     retractall(cidadao(_)),
-    random_permutation(Pessoas, PessoasEmbaralhadas),
-    distribuir_funcoes_aux(PessoasEmbaralhadas, 1, 1, 1).
+    retractall(assassino(_)),
+    retractall(anjo(_)),
+    retractall(detetive(_)),
+    assertz(anjo(Anjo)),
+    assertz(detetive(Detetive)),
+    assertz(assassino(Assassino)),
+    atribuir_restantes_como_cidadaos(Restantes).
 
-/* adiciona 1 anjo,detetive e assassino e o resto vai para cidadao*/
-distribuir_funcoes_aux([Pessoa | Rest], AnjoCount, DetetiveCount, AssassinoCount) :-
-    (   AnjoCount > 0 ->
-        assertz(anjo(Pessoa)),
-        NovoAnjoCount is AnjoCount - 1,
-        distribuir_funcoes_aux(Rest, NovoAnjoCount, DetetiveCount, AssassinoCount)
-    ;   DetetiveCount > 0 ->
-        assertz(detetive(Pessoa)),
-        NovoDetetiveCount is DetetiveCount - 1,
-        distribuir_funcoes_aux(Rest, AnjoCount, NovoDetetiveCount, AssassinoCount)
-    ;   AssassinoCount > 0 ->
-        assertz(assassino(Pessoa)),
-        NovoAssassinoCount is AssassinoCount - 1,
-        distribuir_funcoes_aux(Rest, AnjoCount, DetetiveCount, NovoAssassinoCount)
-    ;   
-        assertz(cidadao(Pessoa)),
-        distribuir_funcoes_aux(Rest, AnjoCount, DetetiveCount, AssassinoCount)
-    ).
+/* Atribui os restantes como cidadão */
+atribuir_restantes_como_cidadaos([]).
+atribuir_restantes_como_cidadaos([Pessoa | Rest]) :-
+    assertz(cidadao(Pessoa)),
+    atribuir_restantes_como_cidadaos(Rest).
 
-/* Verifica se tem pelo menos 1 funcao de cada */
-verificar_funcoes :-
-    (   cidadao(_), assassino(_), anjo(_)
-    ->  true
-    ;   write('Desculpe houve uma falha ao distribuir funcoes, tente novamente '), nl
-    ).
+/* Exibe os papéis atribuídos */
+mostrar_papeis() :-
+    findall(C, cidadao(C), Cidadaos),
+    findall(A, assassino(A), Assassinos),
+    findall(An, anjo(An), Anjos),
+    findall(D, detetive(D), Detetives),
+    write('Anjo: '), writeln(Anjos),
+    write('Detetive: '), writeln(Detetives),
+    write('Assassino: '), writeln(Assassinos),
+    write('Cidadaos: '), writeln(Cidadaos).
