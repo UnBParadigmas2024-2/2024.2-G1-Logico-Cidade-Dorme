@@ -39,3 +39,17 @@ processar_opcao(3) :- write('Obrigado por jogar! Ate a proxima!'), nl.
 processar_opcao(_) :-
     write('Opcao invalida. Tente novamente.'), nl,
     tela_inicial.
+
+/* Iniciar Jogo*/
+iniciar_jogo :-
+    write(''), nl,
+    write('=============================='), nl,
+    write('Iniciando o jogo... Todos fechem os olhos !!!'), nl,
+    write('=============================='), nl,
+    write(''), nl,
+    pressione_para_continuar,
+    mostrar_pessoas.
+    /* TODO: continuar apartir daqui */
+
+
+
