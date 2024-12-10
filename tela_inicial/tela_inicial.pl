@@ -1,3 +1,5 @@
+:- dynamic fantasma/1.
+
 /* Tela inicial */
 tela_inicial :-
     write('=============================='), nl,
@@ -40,7 +42,7 @@ escolher_assassino_mensagem() :-
     format('Milene: ~w Escolha alguém para matar!!!~n', [Assassino]).
 
 escolher_anjo_mensagem() :-
-    (findall(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
+    (bagof(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
     format('~w: Escolha alguém para salvar!!!~n', [Anjo]).
 
 
@@ -52,12 +54,16 @@ assassino_matar() :-
             downcase_atom(Vivo, VivoLower),
             NomeEscolhidoLower = VivoLower
         ) ->  % Comparar o nome sem sensibilidade a maiúsculas/minúsculas
-            retract(vivo(Vivo)),  % Remover a pessoa da lista de vivos
+            retract(vivo(Vivo)),  % Remover da lista de vivos
+            adicionar_fantasma(Vivo),  % Passar o nome da pessoa como argumento
             write(''), nl,
             format('~w foi morto(a)!~n', [Vivo])
     ;   writeln('Nome inválido ou pessoa não encontrada.')
     ).
 
+adicionar_fantasma(Pessoa) :-
+    assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma
+    format('~w agora é um(a) fantasma!~n', [Pessoa]).
 
 /* Iniciar Jogo */
 iniciar_jogo :- 
@@ -78,4 +84,6 @@ iniciar_jogo :-
     write(''), nl,
     mostrar_vivos_exceto_assassinos,
     write(''), nl,
-    escolher_anjo_mensagem.
+    escolher_anjo_mensagem,
+    write(''), nl,
+    mostrar_vivos_exceto_anjos.

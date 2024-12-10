@@ -20,6 +20,15 @@ mostrar_vivos_exceto_assassinos() :-
     sort(VivosFiltrados, VivosOrdenados),  % Ordena alfabeticamente
     listar_com_numeros(VivosOrdenados, 0). % Inicia a listagem com números
 
+mostrar_vivos_exceto_anjos() :-
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),       % Obtém todos os vivos ou uma lista vazia
+    (bagof(A, anjo(A), Anjos) ; Anjos = []),       % Obtém todos os anjos ou uma lista vazia
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []), % Obtém todos os fantasmas ou uma lista vazia
+    excluir_anjos(Vivos, Anjos, VivosFiltrados),   % Remove os anjos da lista de vivos
+    append(VivosFiltrados, Fantasmas, Mesclados),  % Combina vivos e fantasmas
+    sort(Mesclados, ListaOrdenada),               % Ordena alfabeticamente
+    listar_com_numeros(ListaOrdenada, 0).         % Lista com números, começando do 0
+
 excluir_assassinos([], _, []).
 excluir_assassinos([V | Rest], Assassinos, VivosFiltrados) :-
     (member(V, Assassinos) ->
@@ -29,11 +38,22 @@ excluir_assassinos([V | Rest], Assassinos, VivosFiltrados) :-
         VivosFiltrados = [V | RestFiltrados]  % Mantém na lista
     ).
 
+excluir_anjos([], _, []).  % Caso base: lista vazia
+excluir_anjos([V | Rest], Anjos, VivosFiltrados) :-
+    (member(V, Anjos) ->
+        excluir_anjos(Rest, Anjos, VivosFiltrados)  % Ignora se é anjo
+    ;
+        excluir_anjos(Rest, Anjos, RestFiltrados),
+        VivosFiltrados = [V | RestFiltrados]       % Mantém na lista
+    ).
+
 listar_com_numeros([], _).
 listar_com_numeros([Nome | Rest], Numero) :-
     write(Numero), write('. '), writeln(Nome),
     NovoNumero is Numero + 1,
     listar_com_numeros(Rest, NovoNumero).
+
+
 
 
 /* Lê o arquivo e distribui os papéis */
