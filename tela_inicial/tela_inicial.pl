@@ -39,6 +39,26 @@ escolher_assassino_mensagem() :-
     (bagof(A, assassino(A), [Assassino | _]) ; Assassino = 'Desconhecido'),
     format('Milene: ~w Escolha alguém para matar!!!~n', [Assassino]).
 
+escolher_anjo_mensagem() :-
+    (findall(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
+    format('~w: Escolha alguém para salvar!!!~n', [Anjo]).
+
+
+assassino_matar() :-
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),  % Buscar todos os vivos
+    read(NomeEscolhido),  % Ler o nome escolhido
+    (   (   member(Vivo, Vivos), 
+            downcase_atom(NomeEscolhido, NomeEscolhidoLower), 
+            downcase_atom(Vivo, VivoLower),
+            NomeEscolhidoLower = VivoLower
+        ) ->  % Comparar o nome sem sensibilidade a maiúsculas/minúsculas
+            retract(vivo(Vivo)),  % Remover a pessoa da lista de vivos
+            write(''), nl,
+            format('~w foi morto(a)!~n', [Vivo])
+    ;   writeln('Nome inválido ou pessoa não encontrada.')
+    ).
+
+
 /* Iniciar Jogo */
 iniciar_jogo :- 
     write(''), nl,
@@ -49,8 +69,13 @@ iniciar_jogo :-
     write(''), nl,
     write('=============================='), nl,
     write('Milene: Noite 2... Todos fechem os olhos !!!'), nl,
-    write('=============================='), nl,
+    write(''), nl,
     escolher_assassino_mensagem,
     write(''), nl,
-    write('=============================='), nl,
-    mostrar_vivos_exceto_assassinos.
+    mostrar_vivos_exceto_assassinos,
+    write(''), nl,
+    assassino_matar,
+    write(''), nl,
+    mostrar_vivos_exceto_assassinos,
+    write(''), nl,
+    escolher_anjo_mensagem.
