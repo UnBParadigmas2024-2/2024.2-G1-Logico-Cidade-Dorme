@@ -1,3 +1,5 @@
+:- dynamic fantasma/1.
+
 /* Tela inicial */
 tela_inicial :-
     write('=============================='), nl,
@@ -35,10 +37,105 @@ mostrar_regras :-
     write('=============================='), nl,
     write(''), nl.
 
+escolher_assassino_mensagem() :-
+    (bagof(A, assassino(A), [Assassino | _]) ; Assassino = 'Desconhecido'),
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para matar!!!~n', [Assassino]),
+    write(''), nl.
+
+escolher_anjo_mensagem() :-
+    (bagof(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para salvar!!!~n', [Anjo]),
+    write(''), nl.
+
+escolher_detetive_mensagem() :-
+    (bagof(D, detetive(D), [Detetive | _]) ; Detetive = 'Desconhecido'),  % Verifica quem é o detetive
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para acusar!!!~n', [Detetive]),
+    write(''), nl.
+
+
+assassino_matar() :-
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),
+    escolher_assassino_mensagem,
+    mostrar_vivos_exceto_assassinos,
+    read(NomeEscolhido),
+    (   member(Vivo, Vivos),
+        downcase_atom(NomeEscolhido, NomeEscolhidoLower),
+        downcase_atom(Vivo, VivoLower),
+        NomeEscolhidoLower = VivoLower
+    ->  retract(vivo(Vivo)),
+        adicionar_fantasma(Vivo)
+    ;   writeln('Nome inválido ou pessoa não encontrada.')
+    ).
+
+
+adicionar_fantasma(Pessoa) :-
+    assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma,
+    write(''), nl,
+    format('~w agora é um(a) fantasma!~n', [Pessoa]).
+
+anjo_salvar() :-
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []),  % Obtém todos os fantasmas ou lista vazia
+    read(NomeEscolhido),  % Ler o nome escolhido pelo anjo
+    downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome escolhido para minúsculas
+    (   member(Fantasma, Fantasmas),                % Verifica se o nome está na lista de fantasmas
+        downcase_atom(Fantasma, FantasmaLower),      % Converte o nome do fantasma para minúsculas
+        EscolhidoLower = FantasmaLower               % Compara os nomes convertidos
+    ->  retract(fantasma(Fantasma)),                 % Remove o fantasma da lista de fantasmas
+        assertz(vivo(Fantasma)),                     % Adiciona o fantasma à lista de vivos
+        write(''), nl,
+        format('~w Foi salvo!~n', [NomeEscolhido]),
+        detetive_acusar
+    ;   write(''), nl,
+        format('Anjo não conseguiu salvar o morto.'),
+        detetive_acusar
+    ).
+
+verificar_fantasma_e_anjos :-
+    (bagof(F, fantasma(F), [Fantasma | _]) ; Fantasma = 'Desconhecido'),
+    (bagof(A, anjo(A), [Anjo | _]) ; Anjo = 'Desconhecido'),
+    (   downcase_atom(Fantasma, FantasmaLower),
+        downcase_atom(Anjo, AnjoLower),
+        FantasmaLower = AnjoLower
+    ->  writeln('O anjo e o fantasma são a mesma pessoa!'),
+        retractall(fantasma(_)),
+        detetive_acusar
+    ;   writeln('O anjo e o fantasma não são a mesma pessoa!'),
+        escolher_anjo_mensagem,
+        mostrar_vivos_exceto_anjos,
+        anjo_salvar
+    ).
+
+detetive_acusar() :-
+    escolher_detetive_mensagem,
+    mostrar_vivos_exceto_detetives,
+    read(NomeEscolhido),  % Lê o nome escolhido pelo detetive
+    downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome para minúsculas
+    assertz(acusado(EscolhidoLower)),  % Adiciona o nome do acusado
+    retractall(fantasma(_)),  % Remove qualquer informação sobre fantasmas
+    write(''), nl,
+    format('~w foi acusado!~n', [NomeEscolhido]).  % Exibe mensagem de acusação
+
+
+
 /* Iniciar Jogo */
 iniciar_jogo :- 
+    write(''), nl,
     write('=============================='), nl,
-    write('Iniciando o jogo... Todos fechem os olhos !!!'), nl,
+    write('Milene: Noite 1...Todos fechem os olhos !!!'), nl,
     write('=============================='), nl,
-    carregar_papeis.  % Não precisamos mais chamar mostrar_papeis aqui
-
+    carregar_papeis,  % Não precisamos mais chamar mostrar_papeis aqui
+    write(''), nl,
+    write('=============================='), nl,
+    write('Milene: Noite 2... Todos fechem os olhos !!!'), nl,
+    write(''), nl,
+    assassino_matar,
+    write(''), nl,
+    verificar_fantasma_e_anjos,
+    write(''), nl,
+    write('VIVOS:'), nl,
+    listar_todos_vivos,
+    write('FANTASMAS:'), nl,
+    listar_todos_fantasmas.
