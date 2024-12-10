@@ -39,33 +39,41 @@ mostrar_regras :-
 
 escolher_assassino_mensagem() :-
     (bagof(A, assassino(A), [Assassino | _]) ; Assassino = 'Desconhecido'),
-    format('Milene: ~w, Escolha alguém para matar!!!~n', [Assassino]).
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para matar!!!~n', [Assassino]),
+    write(''), nl.
 
 escolher_anjo_mensagem() :-
     (bagof(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
-    format('Milene: ~w, Escolha alguém para salvar!!!~n', [Anjo]).
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para salvar!!!~n', [Anjo]),
+    write(''), nl.
 
 escolher_detetive_mensagem() :-
     (bagof(D, detetive(D), [Detetive | _]) ; Detetive = 'Desconhecido'),  % Verifica quem é o detetive
-    format('Milene: ~w, Escolha alguém para acusar!!!~n', [Detetive]).
+    write(''), nl,
+    format('Milene: ~w, Escolha alguém para acusar!!!~n', [Detetive]),
+    write(''), nl.
 
 
 assassino_matar() :-
     (bagof(V, vivo(V), Vivos) ; Vivos = []),
+    escolher_assassino_mensagem,
+    mostrar_vivos_exceto_assassinos,
     read(NomeEscolhido),
     (   member(Vivo, Vivos),
         downcase_atom(NomeEscolhido, NomeEscolhidoLower),
         downcase_atom(Vivo, VivoLower),
         NomeEscolhidoLower = VivoLower
     ->  retract(vivo(Vivo)),
-        adicionar_fantasma(Vivo),
-        writeln('A pessoa foi morta e agora é um fantasma.')
+        adicionar_fantasma(Vivo)
     ;   writeln('Nome inválido ou pessoa não encontrada.')
     ).
 
 
 adicionar_fantasma(Pessoa) :-
-    assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma
+    assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma,
+    write(''), nl,
     format('~w agora é um(a) fantasma!~n', [Pessoa]).
 
 anjo_salvar() :-
@@ -77,9 +85,12 @@ anjo_salvar() :-
         EscolhidoLower = FantasmaLower               % Compara os nomes convertidos
     ->  retract(fantasma(Fantasma)),                 % Remove o fantasma da lista de fantasmas
         assertz(vivo(Fantasma)),                     % Adiciona o fantasma à lista de vivos
-        format('~w Foi salvo!~n', [NomeEscolhido])
-    ;   retractall(fantasma(_)),                     % Remove todos os fantasmas da lista
-        format('Anjo não conseguiu salvar o morto. ~w Morreu. ~n', [NomeEscolhido])
+        write(''), nl,
+        format('~w Foi salvo!~n', [NomeEscolhido]),
+        detetive_acusar
+    ;   write(''), nl,
+        format('Anjo não conseguiu salvar o morto.'),
+        detetive_acusar
     ).
 
 verificar_fantasma_e_anjos :-
@@ -96,13 +107,17 @@ verificar_fantasma_e_anjos :-
         anjo_salvar
     ).
 
-
 detetive_acusar() :-
     escolher_detetive_mensagem,
+    mostrar_vivos_exceto_detetives,
     read(NomeEscolhido),  % Lê o nome escolhido pelo detetive
     downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome para minúsculas
-    assertz(acusado(EscolhidoLower)),  % Adiciona a pessoa ao cargo de acusado
+    assertz(acusado(EscolhidoLower)),  % Adiciona o nome do acusado
+    retractall(fantasma(_)),  % Remove qualquer informação sobre fantasmas
+    write(''), nl,
     format('~w foi acusado!~n', [NomeEscolhido]).  % Exibe mensagem de acusação
+
+
 
 /* Iniciar Jogo */
 iniciar_jogo :- 
@@ -115,14 +130,11 @@ iniciar_jogo :-
     write('=============================='), nl,
     write('Milene: Noite 2... Todos fechem os olhos !!!'), nl,
     write(''), nl,
-    escolher_assassino_mensagem,
-    write(''), nl,
-    mostrar_vivos_exceto_assassinos,
-    write(''), nl,
     assassino_matar,
     write(''), nl,
     verificar_fantasma_e_anjos,
     write(''), nl,
-    write('VIVOS (MENOS O ANJO):'), nl,
-    write(''), nl,
-    mostrar_vivos_exceto_anjos.
+    write('VIVOS:'), nl,
+    listar_todos_vivos,
+    write('FANTASMAS:'), nl,
+    listar_todos_fantasmas.

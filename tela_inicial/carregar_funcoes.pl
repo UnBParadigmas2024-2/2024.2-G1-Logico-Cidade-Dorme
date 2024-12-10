@@ -17,35 +17,65 @@ mostrar_vivos_exceto_assassinos() :-
     (bagof(V, vivo(V), Vivos) ; Vivos = []),
     (bagof(A, assassino(A), Assassinos) ; Assassinos = []),
     excluir_assassinos(Vivos, Assassinos, VivosFiltrados),
-    sort(VivosFiltrados, VivosOrdenados),  % Ordena alfabeticamente
-    listar_com_numeros(VivosOrdenados, 0). % Inicia a listagem com números
+    sort(VivosFiltrados, VivosOrdenados),  
+    listar_com_numeros(VivosOrdenados, 0).
 
 mostrar_vivos_exceto_anjos() :-
-    (bagof(V, vivo(V), Vivos) ; Vivos = []),       % Obtém todos os vivos ou uma lista vazia
-    (bagof(A, anjo(A), Anjos) ; Anjos = []),       % Obtém todos os anjos ou uma lista vazia
-    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []), % Obtém todos os fantasmas ou uma lista vazia
-    excluir_anjos(Vivos, Anjos, VivosFiltrados),   % Remove os anjos da lista de vivos
-    append(VivosFiltrados, Fantasmas, Mesclados),  % Combina vivos e fantasmas
-    sort(Mesclados, ListaOrdenada),               % Ordena alfabeticamente
-    listar_com_numeros(ListaOrdenada, 0).         % Lista com números, começando do 0
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),       
+    (bagof(A, anjo(A), Anjos) ; Anjos = []),       
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []), 
+    excluir_anjos(Vivos, Anjos, VivosFiltrados),  
+    append(VivosFiltrados, Fantasmas, Mesclados), 
+    sort(Mesclados, ListaOrdenada),             
+    listar_com_numeros(ListaOrdenada, 0). 
+
+mostrar_vivos_exceto_detetives() :-
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),       
+    (bagof(D, detetive(D), Detetives) ; Detetives = []),       
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []), 
+    excluir_detetives(Vivos, Detetives, VivosFiltrados),  
+    append(VivosFiltrados, Fantasmas, Mesclados), 
+    sort(Mesclados, ListaOrdenada),              
+    listar_com_numeros(ListaOrdenada, 0). 
 
 excluir_assassinos([], _, []).
 excluir_assassinos([V | Rest], Assassinos, VivosFiltrados) :-
     (member(V, Assassinos) ->
-        excluir_assassinos(Rest, Assassinos, VivosFiltrados)  % Ignora se é assassino
+        excluir_assassinos(Rest, Assassinos, VivosFiltrados)  
     ;
         excluir_assassinos(Rest, Assassinos, RestFiltrados),
-        VivosFiltrados = [V | RestFiltrados]  % Mantém na lista
+        VivosFiltrados = [V | RestFiltrados]  
     ).
 
 excluir_anjos([], _, []).  % Caso base: lista vazia
 excluir_anjos([V | Rest], Anjos, VivosFiltrados) :-
     (member(V, Anjos) ->
-        excluir_anjos(Rest, Anjos, VivosFiltrados)  % Ignora se é anjo
+        excluir_anjos(Rest, Anjos, VivosFiltrados)  
     ;
         excluir_anjos(Rest, Anjos, RestFiltrados),
-        VivosFiltrados = [V | RestFiltrados]       % Mantém na lista
+        VivosFiltrados = [V | RestFiltrados]       
     ).
+
+excluir_detetives([], _, []).  % Caso base: lista vazia
+
+excluir_detetives([V | Rest], Detetives, VivosFiltrados) :-
+    (member(V, Detetives) ->
+        excluir_detetives(Rest, Detetives, VivosFiltrados)  % Ignora se for detetive
+    ;
+        excluir_detetives(Rest, Detetives, RestFiltrados),
+        VivosFiltrados = [V | RestFiltrados]       % Mantém na lista se não for detetive
+    ).
+
+listar_todos_vivos() :-
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),  % Obtém todos os vivos ou uma lista vazia
+    sort(Vivos, ListaOrdenada),               % Ordena a lista de vivos
+    listar_com_numeros(ListaOrdenada, 0).     % Exibe a lista com numeração
+
+listar_todos_fantasmas() :-
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []),  % Obtém todos os fantasmas ou uma lista vazia
+    sort(Fantasmas, ListaOrdenada),                      % Ordena a lista de fantasmas
+    listar_com_numeros(ListaOrdenada, 0).                 % Exibe a lista com numeração
+
 
 listar_com_numeros([], _).
 listar_com_numeros([Nome | Rest], Numero) :-
