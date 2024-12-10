@@ -39,26 +39,30 @@ mostrar_regras :-
 
 escolher_assassino_mensagem() :-
     (bagof(A, assassino(A), [Assassino | _]) ; Assassino = 'Desconhecido'),
-    format('Milene: ~w Escolha alguém para matar!!!~n', [Assassino]).
+    format('Milene: ~w, Escolha alguém para matar!!!~n', [Assassino]).
 
 escolher_anjo_mensagem() :-
     (bagof(An, anjo(An), [Anjo | _]) ; Anjo = 'Desconhecido'),  % Verifica quem é o anjo
-    format('~w: Escolha alguém para salvar!!!~n', [Anjo]).
+    format('Milene: ~w, Escolha alguém para salvar!!!~n', [Anjo]).
+
+escolher_detetive_mensagem() :-
+    (bagof(D, detetive(D), [Detetive | _]) ; Detetive = 'Desconhecido'),  % Verifica quem é o detetive
+    format('Milene: ~w, Escolha alguém para acusar!!!~n', [Detetive]).
 
 
 assassino_matar() :-
-    (bagof(V, vivo(V), Vivos) ; Vivos = []),  % Buscar todos os vivos
-    read(NomeEscolhido),  % Ler o nome escolhido
-    (   (   member(Vivo, Vivos), 
-            downcase_atom(NomeEscolhido, NomeEscolhidoLower), 
-            downcase_atom(Vivo, VivoLower),
-            NomeEscolhidoLower = VivoLower
-        ) ->  % Comparar o nome sem sensibilidade a maiúsculas/minúsculas
-            retract(vivo(Vivo)),  % Remover da lista de vivos
-            adicionar_fantasma(Vivo),  % Passar o nome da pessoa como argumento
-            write(''), nl,
+    (bagof(V, vivo(V), Vivos) ; Vivos = []),
+    read(NomeEscolhido),
+    (   member(Vivo, Vivos),
+        downcase_atom(NomeEscolhido, NomeEscolhidoLower),
+        downcase_atom(Vivo, VivoLower),
+        NomeEscolhidoLower = VivoLower
+    ->  retract(vivo(Vivo)),
+        adicionar_fantasma(Vivo),
+        writeln('A pessoa foi morta e agora é um fantasma.')
     ;   writeln('Nome inválido ou pessoa não encontrada.')
     ).
+
 
 adicionar_fantasma(Pessoa) :-
     assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma
@@ -78,6 +82,28 @@ anjo_salvar() :-
         format('Anjo não conseguiu salvar o morto. ~w Morreu. ~n', [NomeEscolhido])
     ).
 
+verificar_fantasma_e_anjos :-
+    (bagof(F, fantasma(F), [Fantasma | _]) ; Fantasma = 'Desconhecido'),
+    (bagof(A, anjo(A), [Anjo | _]) ; Anjo = 'Desconhecido'),
+    (   downcase_atom(Fantasma, FantasmaLower),
+        downcase_atom(Anjo, AnjoLower),
+        FantasmaLower = AnjoLower
+    ->  writeln('O anjo e o fantasma são a mesma pessoa!'),
+        detetive_acusar
+    ;   writeln('O anjo e o fantasma não são a mesma pessoa!'),
+        escolher_anjo_mensagem,
+        mostrar_vivos_exceto_anjos,
+        anjo_salvar
+    ).
+
+
+detetive_acusar() :-
+    escolher_detetive_mensagem,
+    read(NomeEscolhido),  % Lê o nome escolhido pelo detetive
+    downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome para minúsculas
+    assertz(acusado(EscolhidoLower)),  % Adiciona a pessoa ao cargo de acusado
+    format('~w foi acusado!~n', [NomeEscolhido]).  % Exibe mensagem de acusação
+
 /* Iniciar Jogo */
 iniciar_jogo :- 
     write(''), nl,
@@ -95,13 +121,7 @@ iniciar_jogo :-
     write(''), nl,
     assassino_matar,
     write(''), nl,
-    mostrar_vivos_exceto_assassinos,
-    write(''), nl,
-    escolher_anjo_mensagem,
-    write(''), nl,
-    mostrar_vivos_exceto_anjos,
-    write(''), nl,
-    anjo_salvar,
+    verificar_fantasma_e_anjos,
     write(''), nl,
     write('VIVOS (MENOS O ANJO):'), nl,
     write(''), nl,
