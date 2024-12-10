@@ -100,6 +100,7 @@ verificar_fantasma_e_anjos :-
         downcase_atom(Anjo, AnjoLower),
         FantasmaLower = AnjoLower
     ->  writeln('O anjo e o fantasma são a mesma pessoa!'),
+        retractall(fantasma(_)),
         detetive_acusar
     ;   writeln('O anjo e o fantasma não são a mesma pessoa!'),
         escolher_anjo_mensagem,
