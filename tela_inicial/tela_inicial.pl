@@ -57,13 +57,26 @@ assassino_matar() :-
             retract(vivo(Vivo)),  % Remover da lista de vivos
             adicionar_fantasma(Vivo),  % Passar o nome da pessoa como argumento
             write(''), nl,
-            format('~w foi morto(a)!~n', [Vivo])
     ;   writeln('Nome inválido ou pessoa não encontrada.')
     ).
 
 adicionar_fantasma(Pessoa) :-
     assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma
     format('~w agora é um(a) fantasma!~n', [Pessoa]).
+
+anjo_salvar() :-
+    (bagof(F, fantasma(F), Fantasmas) ; Fantasmas = []),  % Obtém todos os fantasmas ou lista vazia
+    read(NomeEscolhido),  % Ler o nome escolhido pelo anjo
+    downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome escolhido para minúsculas
+    (   member(Fantasma, Fantasmas),                % Verifica se o nome está na lista de fantasmas
+        downcase_atom(Fantasma, FantasmaLower),      % Converte o nome do fantasma para minúsculas
+        EscolhidoLower = FantasmaLower               % Compara os nomes convertidos
+    ->  retract(fantasma(Fantasma)),                 % Remove o fantasma da lista de fantasmas
+        assertz(vivo(Fantasma)),                     % Adiciona o fantasma à lista de vivos
+        format('~w Foi salvo!~n', [NomeEscolhido])
+    ;   retractall(fantasma(_)),                     % Remove todos os fantasmas da lista
+        format('Anjo não conseguiu salvar o morto. ~w Morreu. ~n', [NomeEscolhido])
+    ).
 
 /* Iniciar Jogo */
 iniciar_jogo :- 
@@ -85,5 +98,11 @@ iniciar_jogo :-
     mostrar_vivos_exceto_assassinos,
     write(''), nl,
     escolher_anjo_mensagem,
+    write(''), nl,
+    mostrar_vivos_exceto_anjos,
+    write(''), nl,
+    anjo_salvar,
+    write(''), nl,
+    write('VIVOS (MENOS O ANJO):'), nl,
     write(''), nl,
     mostrar_vivos_exceto_anjos.
