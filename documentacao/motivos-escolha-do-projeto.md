@@ -1,4 +1,4 @@
-# Relação do Paradigma Lógico com o Projeto
+# Relação do Paradigma Lógico com o jogo "Cidade Dorme"
 
 "Cidade Dorme" é um jogo de dedução social que envolve jogadores assumindo diferentes papéis, como cidadãos, mafiosos, entre outros, com o objetivo de eliminar o time adversário. A essência do jogo reside na lógica, dedução e estratégias baseadas em informações parciais, o que se alinha perfeitamente com o paradigma da programação lógica.
 
