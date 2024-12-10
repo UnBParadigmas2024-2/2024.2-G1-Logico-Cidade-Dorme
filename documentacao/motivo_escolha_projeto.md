@@ -1,0 +1,1 @@
+# Relação do Paradigma Lógico com o Projeto
