@@ -39,7 +39,7 @@ Em Prolog, os papéis dos jogadores podem ser representados como fatos básicos,
 
 Por fim, a dedução lógica central ao jogo, onde os jogadores devem interpretar as ações de outros participantes para chegar a conclusões, reflete a essência do paradigma lógico. A utilização de Prolog para simular o jogo reforça o aprendizado de conceitos fundamentais do paradigma, como a resolução baseada em inferências e o uso de cláusulas lógicas para resolver problemas. Dessa forma, o jogo "Cidade Dorme" é uma excelente ferramenta para explorar e exemplificar os princípios do paradigma lógico.
 
-### Por que optamos por um sistema de ?
+### Por que optamos por implementar o jogo "Cidade Dorme"?
 
 Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos-escolha-do-projeto.md)
 
