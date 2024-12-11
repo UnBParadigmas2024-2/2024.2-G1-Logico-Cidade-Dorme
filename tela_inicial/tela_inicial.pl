@@ -1,4 +1,4 @@
-:- dynamic fantasma/1.
+:- dynamic fantasma/1, acusado/1.
 
 /* Tela inicial */
 tela_inicial :-
@@ -116,8 +116,7 @@ detetive_acusar() :-
     assertz(acusado(EscolhidoLower)),  % Adiciona o nome do acusado
     retractall(fantasma(_)),  % Remove qualquer informação sobre fantasmas
     write(''), nl,
-    format('~w foi acusado!~n', [NomeEscolhido]).  % Exibe mensagem de acusação
-
+    format('~w foi acusado!~n', [NomeEscolhido]).
 
 
 /* Iniciar Jogo */
@@ -138,4 +137,6 @@ iniciar_jogo :-
     write('VIVOS:'), nl,
     listar_todos_vivos,
     write('FANTASMAS:'), nl,
-    listar_todos_fantasmas.
+    listar_todos_fantasmas, 
+    (bagof(Ac, acusado(Ac), Acusado) ; Acusado = []),
+    write('Acusados: '), writeln(Acusado).
