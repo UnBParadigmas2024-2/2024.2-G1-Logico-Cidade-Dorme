@@ -127,15 +127,4 @@ iniciar_jogo :-
     write('Milene: Noite 1...Todos fechem os olhos !!!'), nl,
     write('=============================='), nl,
     carregar_papeis,  % Não precisamos mais chamar mostrar_papeis aqui
-    write(''), nl,
-    write('=============================='), nl,
-    write('Milene: Noite 2... Todos fechem os olhos !!!'), nl,
-    write(''), nl,
-    assassino_matar,
-    write(''), nl,
-    verificar_fantasma_e_anjos,
-    write(''), nl,
-    write('VIVOS:'), nl,
-    listar_todos_vivos,
-    write('FANTASMAS:'), nl,
-    listar_todos_fantasmas.
+    nova_rodada.
