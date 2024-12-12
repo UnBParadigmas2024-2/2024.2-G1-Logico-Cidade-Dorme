@@ -65,11 +65,30 @@ assassino_matar() :-
         downcase_atom(NomeEscolhido, NomeEscolhidoLower),
         downcase_atom(Vivo, VivoLower),
         NomeEscolhidoLower = VivoLower
-    ->  retract(vivo(Vivo)),
-        adicionar_fantasma(Vivo),
-        (anjo(Vivo) ->  matar_anjo; true)
-    ;   writeln('Nome inválido ou pessoa não encontrada.')
+    ->
+        bagof(D, detetive(D), [Detetive | _]),
+        downcase_atom(Detetive, DetetiveLower),
+        (NomeEscolhidoLower = DetetiveLower ->
+            % Se matou o detetive, assassino vence
+            retract(vivo(Vivo)),
+            adicionar_fantasma(Vivo),
+            fim_de_jogo,
+            definir_vencedor(assassino),
+            write(''), nl,
+            write('=============================='), nl,
+            write('O assassino matou o detetive!'), nl,
+            write('O assassino venceu o jogo!'), nl,
+            write('=============================='), nl
+        ;   
+            % Se não matou o detetive, continua normalmente
+            retract(vivo(Vivo)),
+            adicionar_fantasma(Vivo),
+            (anjo(Vivo) ->  matar_anjo; true)
+        )
+    ;
+        writeln('Nome inválido ou pessoa não encontrada.')
     ).
+
 
 
 adicionar_fantasma(Pessoa) :-
@@ -98,14 +117,14 @@ anjo_salvar() :-
 verificar_fantasma_e_anjos :-
     (   
         anjoVivo(sim)
-    ->  matar_anjo, writeln('O anjo e o fantasma são a mesma pessoa!'),
-        retractall(fantasma(_)),
-        detetive_acusar
-    ;   
-    writeln('O anjo e o fantasma não são a mesma pessoa!'),
+    ->  writeln('O anjo e o fantasma não são a mesma pessoa!'),
         escolher_anjo_mensagem,
         mostrar_vivos_exceto_anjos,
         anjo_salvar
+    ;   
+    writeln('O anjo e o fantasma são a mesma pessoa!'),
+        retractall(fantasma(_)),
+        detetive_acusar
     ).
 
 detetive_acusar() :-
