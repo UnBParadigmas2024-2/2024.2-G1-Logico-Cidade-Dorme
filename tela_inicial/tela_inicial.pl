@@ -66,21 +66,20 @@ assassino_matar() :-
         downcase_atom(Vivo, VivoLower),
         NomeEscolhidoLower = VivoLower
     ->
-        % Verifica se a vítima é o detetive
-        bagof(D, detetive(D), [Detetive | ]),
-        downcaseatom(Detetive, DetetiveLower),
+        bagof(D, detetive(D), [Detetive | _]),
+        downcase_atom(Detetive, DetetiveLower),
         (NomeEscolhidoLower = DetetiveLower ->
-
+            % Se matou o detetive, assassino vence
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
             fim_de_jogo,
-            definir_vencedor(bagof(D, assassino(D), [assassino | ])),
+            definir_vencedor(assassino),
             write(''), nl,
             write('=============================='), nl,
             write('O assassino matou o detetive!'), nl,
             write('O assassino venceu o jogo!'), nl,
             write('=============================='), nl
-        ;
+        ;   
             % Se não matou o detetive, continua normalmente
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo)
@@ -88,6 +87,7 @@ assassino_matar() :-
     ;
         writeln('Nome inválido ou pessoa não encontrada.')
     ).
+
 
 
 adicionar_fantasma(Pessoa) :-
