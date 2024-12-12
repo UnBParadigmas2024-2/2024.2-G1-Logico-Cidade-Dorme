@@ -56,7 +56,7 @@ escolher_detetive_mensagem() :-
     write(''), nl.
 
 
-assassinomatar() :-
+assassino_matar() :-
     (bagof(V, vivo(V), Vivos) ; Vivos = []),
     escolher_assassino_mensagem,
     mostrar_vivos_exceto_assassinos,
