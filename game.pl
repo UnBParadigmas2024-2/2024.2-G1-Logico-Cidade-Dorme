@@ -7,6 +7,11 @@ vencedor(indefinido).
 :- dynamic numeroNoite/1.
 numeroNoite(1).
 
+:- dynamic anjoVivo/1.
+anjoVivo(sim).
+
+
+
 /* Regras */
 e_noite :-
     periodo(noite),
@@ -24,6 +29,12 @@ definir_vencedor(V) :-
     retract(vencedor(ValorAtual)),
     assertz(vencedor(V)).
 
+matar_anjo() :-
+    anjoVivo(ValorAtual),
+    retract(anjoVivo(ValorAtual)),
+    assertz(anjoVivo(nao)),
+    writeln("Matou anjo").
+
 nova_rodada() :-
     altera_numero_rodada,
     write(''), nl,
@@ -33,7 +44,7 @@ nova_rodada() :-
     write(''), nl,
     assassino_matar,
     write(''), nl,
-    verificar_fantasma_e_anjos,
+    (anjoVivo(sim) -> verificar_fantasma_e_anjos; detetive_acusar),
     write(''), nl,
     write('VIVOS:'), nl,
     listar_todos_vivos,
@@ -44,7 +55,7 @@ nova_rodada() :-
 fim_de_jogo() :-
     write(''), nl,
     vencedor(X),
-    format('Milene: VENCEDOR !!!', X), nl.
+    format('Milene: ~w VENCEDOR !!!', X), nl.
 
 /* Mostra funcoes de cada pessoas */
 mostrar_pessoas() :-
