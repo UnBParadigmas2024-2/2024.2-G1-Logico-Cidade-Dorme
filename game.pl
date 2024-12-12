@@ -43,8 +43,7 @@ nova_rodada() :-
 
 fim_de_jogo() :-
     write(''), nl,
-    vencedor(X),
-    format('Milene: VENCEDOR !!!', X), nl,
+    format('Milene: TEMOS UM VENCEDOR !!!'), nl,
     [setup].
 
 /* Mostra funcoes de cada pessoas */
