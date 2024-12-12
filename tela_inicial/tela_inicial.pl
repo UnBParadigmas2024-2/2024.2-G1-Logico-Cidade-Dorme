@@ -82,7 +82,8 @@ assassino_matar() :-
         ;   
             % Se não matou o detetive, continua normalmente
             retract(vivo(Vivo)),
-            adicionar_fantasma(Vivo)
+            adicionar_fantasma(Vivo),
+            (anjo(Vivo) ->  matar_anjo; true)
         )
     ;
         writeln('Nome inválido ou pessoa não encontrada.')
@@ -112,19 +113,18 @@ anjo_salvar() :-
         detetive_acusar
     ).
 
+
 verificar_fantasma_e_anjos :-
-    (bagof(F, fantasma(F), [Fantasma | _]) ; Fantasma = 'Desconhecido'),
-    (bagof(A, anjo(A), [Anjo | _]) ; Anjo = 'Desconhecido'),
-    (   downcase_atom(Fantasma, FantasmaLower),
-        downcase_atom(Anjo, AnjoLower),
-        FantasmaLower = AnjoLower
-    ->  writeln('O anjo e o fantasma são a mesma pessoa!'),
-        retractall(fantasma(_)),
-        detetive_acusar
-    ;   writeln('O anjo e o fantasma não são a mesma pessoa!'),
+    (   
+        anjoVivo(sim)
+    ->  writeln('O anjo e o fantasma não são a mesma pessoa!'),
         escolher_anjo_mensagem,
         mostrar_vivos_exceto_anjos,
         anjo_salvar
+    ;   
+    writeln('O anjo e o fantasma são a mesma pessoa!'),
+        retractall(fantasma(_)),
+        detetive_acusar
     ).
 
 detetive_acusar() :-
