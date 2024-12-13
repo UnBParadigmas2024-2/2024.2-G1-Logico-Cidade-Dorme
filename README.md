@@ -144,6 +144,14 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
    
 4. **Debugging e Testes em Prolog**: Identificar e corrigir erros em Prolog pode ser desafiador. Desenvolvemos novas estratégias para testar e depurar o código, como o uso de rastreamento para entender o fluxo lógico.
 
+##### Subgrupo 2 (Artur Seppa Reiman & Guilherme Peixoto):
+
+1. **Adaptação à Sintaxe de Prolog:** A sintaxe de Prolog, diferente das linguagens tradicionais, nos desafiou a pensar de forma mais precisa na estrutura lógica das regras e consultas.
+   
+2. **Uso de Predicados para Resolver Problemas:** Entendemos como construir e combinar predicados para modelar situações complexas, como estados do jogo e condições de vitória.
+   
+3. **Pensamento Lógico Aplicado ao Debugging:** A depuração em Prolog nos forçou a pensar logicamente sobre cada etapa do código, ajudando a identificar problemas antes que eles afetassem o fluxo do jogo.
+
 ### Percepções
 
 - Linguagem com uma curva de aprendizado íngrime.
