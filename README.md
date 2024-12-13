@@ -56,7 +56,7 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Fluxograma do Projeto
 
-![fluxo cidade dorme](https://github.com/user-attachments/assets/ed774bda-5e18-4680-bcb2-cefbd9c8bf45)
+![fluxo cidade dorme](https://github.com/user-attachments/assets/8c1c8d9d-e95d-42f0-9d16-1450428f45f0)
 
 - OBS: Para maior detalhamento de cada funcionalidade, acesse [esse link](documentacao/passoapasso-uso.md)
 
