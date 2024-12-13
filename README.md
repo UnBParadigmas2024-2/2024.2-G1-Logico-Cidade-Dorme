@@ -134,7 +134,7 @@ Certifique-se de que o ambiente de sua máquina atende aos seguintes requisitos:
 2. Carregue o Arquivo de Configuração Após entrar no SWI-Prolog, carregue o arquivo de setup:
 
    ```prolog
-   ?- [setup].
+   [setup].
    ```
 
 ## Vídeo
@@ -172,25 +172,48 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 1. **Adaptação à Sintaxe de Prolog:** A sintaxe de Prolog, diferente das linguagens tradicionais, nos desafiou a pensar de forma mais precisa na estrutura lógica das regras e consultas.
 2. **Uso de Predicados para Resolver Problemas:** Entendemos como construir e combinar predicados para modelar situações complexas, como estados do jogo e condições de vitória.
 3. **Pensamento Lógico Aplicado ao Debugging:** A depuração em Prolog nos forçou a pensar logicamente sobre cada etapa do código, ajudando a identificar problemas antes que eles afetassem o fluxo do jogo.
+   
+#### Subgrupo 3 (Edilberto Cantuaria & Gustavo Barbosa & Samuel Sato):
+
+1. **Domínio da Lógica Declarativa:** Trabalhar com Prolog nos ensinou a pensar de forma declarativa, focando em descrever o resultado esperado em vez de detalhar os passos para alcançá-lo. Esse paradigma exigiu o desenvolvimento de uma nova forma de raciocínio, baseada em relações e regras lógicas.
+
+2. **Manipulação de Estruturas de Dados:** Aprendemos a utilizar listas, fatos e regras para representar estados de jogo e interações, explorando as capacidades do Prolog para modelar cenários complexos de maneira eficiente.
+
+3. **Criação de Algoritmos Baseados em Lógica:** Projetar e implementar algoritmos em Prolog nos permitiu controlar o fluxo do jogo, gerenciar turnos, verificar condições de vitória e coordenar ações entre os jogadores, consolidando habilidades de planejamento lógico.
+
+4. **Desenvolvimento de Estratégias de Debugging:** A depuração em Prolog demandou abordagens ativas, como o uso de rastreamento lógico para identificar erros e analisar o fluxo do programa, aprimorando nossa capacidade de localizar e resolver problemas de maneira sistemática.
+
+5. **Integração do Pensamento Lógico:** Ao longo do projeto, fortalecemos nossa habilidade de raciocínio lógico que nos possibilitou construir soluções sólidas quanto para garantir a qualidade do código por meio de testes e validações contínuas.
 
 ### Percepções
 - Linguagem com uma curva de aprendizado íngrime.
-- Sintaxe declarativa pode ser um desafio pra quem vem de linguágens orientadas a objeto.
+- Sintaxe declarativa pode ser um desafio para quem vem de linguágens orientadas a objeto.
 - É interessante para modelar sitemas baseados em regras, em que são utilizadas um conjunto de regras lógicas para serem tomadas decisões
 
 ### Contribuições e Fragilidades
-- Contribuições:
-  - Desenvolvimento do jogo cidade dorme, com regras equivalentes ao jogo na vida real.
+
+- **Contribuições:**
+  - Desenvolvimento do jogo "Cidade Dorme", com regras equivalentes ao jogo na vida real, adaptadas para a metodologia da disciplina e ao contexto acadêmico.
   - Soluções declarativas e lógicas foram úteis para modelar as regras de negócio de forma clara e direta.
-- Fragilidades:
+  - Aprimoramento das interações entre os jogadores, utilizando algoritmos baseados em lógica para gerenciar turnos e condições de vitória.
+  - Implementação de um fluxo de jogo dinâmico, explorando a dedução lógica para simular as decisões dos participantes.
+  - Utilização eficiente de Prolog para representar papéis dos jogadores e modelar suas interações por meio de fatos e regras.
+
+- **Fragilidades:**
   - Adaptação ao paradigma lógico foi um desafio inicial para a equipe, impactando o ritmo de desenvolvimento.
+  - Sintaxe declarativa e abordagem lógica do Prolog apresentaram uma curva de aprendizado íngreme, o que impactou o tempo necessário para implementar funcionalidades complexas.
+  - Limitações da equipe em depuração inicial de código Prolog, devido à falta de familiaridade com ferramentas e técnicas específicas de debugging.
+  - Dificuldade em balancear as regras do jogo durante a fase de modelagem, resultando em ajustes posteriores para garantir a equidade e diversão no fluxo do jogo.
+
 
 ### Trabalhos Futuros
 
 A análise do projeto em questão revela a necessidade de aprimoramentos tanto em termos de usabilidade quanto de arquitetura.
 
-- Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Haskell:
-
+Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Prolog:
+- **Desafio do Einsten:** pode ser utilizado no desafio de lógica de Einstein para modelar as restrições do problema como fatos e regras, permitindo que o motor lógico da linguagem explore todas as combinações possíveis e encontre a solução que satisfaz todas as condições. Essa abordagem automatiza o raciocínio lógico, eliminando inconsistências de forma eficiente.
+- **Simulação de uma torre de controle de um aeroporto:** o Prolog pode ser aplicado ao controle de voos por sua capacidade de lidar com regras, fatos e inferências lógicas, sendo possível modelar rotas, horários, impor restrições de tráfego aéreo, condições meteorológicas e manutenção de aeronaves como fatos e regras além de permitir consultas complexas, como identificar conexões viáveis entre voos, otimizar rotas e garantir a segurança e eficiência no planejamento, utilizando lógica declarativa para verificar restrições e tomar decisões de maneira automatizada.
+- **Adaptação do jogo Akinator**:O jogo Akinator, que adivinha o personagem pensado pelo jogador com base em perguntas e respostas, é um exemplo clássico de aplicação de lógica e inteligência artificial, que, conforme dito anteriormente nesta documentação, é uma das área de aplicação do Prolog. O Akinator pode ser implementado utilizando uma base de conhecimento composta por fatos (personagens e suas características) e regras que relacionam as respostas do usuário às hipóteses. O motor lógico do Prolog permite inferir a solução através de um sistema de perguntas dinâmico, eliminando possibilidades inconsistentes até chegar à resposta correta, tornando-o adequado para construir um sistema baseado em lógica dedutiva e interativa como esse. 
 
 ## Fontes
 
