@@ -1,17 +1,3 @@
-:- dynamic cidadao/1, assassino/1, anjo/1, detetive/1, vivo/1.
-
-/* Função principal para carregar pessoas, atribuir papéis e exibir os resultados */    
-carregar_papeis() :-
-    retractall(vivo(_)),
-    file_lines('tela_inicial/pessoas_predefinidas.txt', Pessoas),
-    distribuir_papeis(Pessoas),
-    iniciar_vivo(Pessoas),
-    mostrar_papeis().  
-
-iniciar_vivo([]).
-iniciar_vivo([Pessoa | Rest]) :-
-    assertz(vivo(Pessoa)),
-    iniciar_vivo(Rest).
 
 mostrar_vivos_exceto_assassinos() :-
     (bagof(V, vivo(V), Vivos) ; Vivos = []),
@@ -38,34 +24,6 @@ mostrar_vivos_exceto_detetives() :-
     sort(Mesclados, ListaOrdenada),              
     listar_com_numeros(ListaOrdenada, 0). 
 
-excluir_assassinos([], _, []).
-excluir_assassinos([V | Rest], Assassinos, VivosFiltrados) :-
-    (member(V, Assassinos) ->
-        excluir_assassinos(Rest, Assassinos, VivosFiltrados)  
-    ;
-        excluir_assassinos(Rest, Assassinos, RestFiltrados),
-        VivosFiltrados = [V | RestFiltrados]  
-    ).
-
-excluir_anjos([], _, []).  % Caso base: lista vazia
-excluir_anjos([V | Rest], Anjos, VivosFiltrados) :-
-    (member(V, Anjos) ->
-        excluir_anjos(Rest, Anjos, VivosFiltrados)  
-    ;
-        excluir_anjos(Rest, Anjos, RestFiltrados),
-        VivosFiltrados = [V | RestFiltrados]       
-    ).
-
-excluir_detetives([], _, []).  % Caso base: lista vazia
-
-excluir_detetives([V | Rest], Detetives, VivosFiltrados) :-
-    (member(V, Detetives) ->
-        excluir_detetives(Rest, Detetives, VivosFiltrados)  % Ignora se for detetive
-    ;
-        excluir_detetives(Rest, Detetives, RestFiltrados),
-        VivosFiltrados = [V | RestFiltrados]       % Mantém na lista se não for detetive
-    ).
-
 listar_todos_vivos() :-
     (bagof(V, vivo(V), Vivos) ; Vivos = []),  % Obtém todos os vivos ou uma lista vazia
     sort(Vivos, ListaOrdenada),               % Ordena a lista de vivos
@@ -83,31 +41,6 @@ listar_com_numeros([Nome | Rest], Numero) :-
     NovoNumero is Numero + 1,
     listar_com_numeros(Rest, NovoNumero).
 
-
-
-
-/* Lê o arquivo e distribui os papéis */
-distribuir_papeis(Pessoas) :-
-    random_permutation(Pessoas, PessoasEmbaralhadas), % Embaralha as pessoas
-    distribuir_papeis_aleatorios(PessoasEmbaralhadas).
-
-/* Atribui os papéis aleatoriamente */
-distribuir_papeis_aleatorios([Anjo, Detetive, Assassino | Restantes]) :-
-    retractall(cidadao(_)),
-    retractall(assassino(_)),
-    retractall(anjo(_)),
-    retractall(detetive(_)),
-    assertz(anjo(Anjo)),
-    assertz(detetive(Detetive)),
-    assertz(assassino(Assassino)),
-    atribuir_restantes_como_cidadaos(Restantes).
-
-/* Atribui os restantes como cidadão */
-atribuir_restantes_como_cidadaos([]).
-atribuir_restantes_como_cidadaos([Pessoa | Rest]) :-
-    assertz(cidadao(Pessoa)),
-    atribuir_restantes_como_cidadaos(Rest).
-
 /* Exibe os papéis atribuídos */
 mostrar_papeis() :-
     findall(C, cidadao(C), Cidadaos),
@@ -120,3 +53,14 @@ mostrar_papeis() :-
     write('Assassino: '), writeln(Assassinos),
     write('Cidadaos: '), writeln(Cidadaos),
     write('Vivos: '), writeln(Vivos).
+
+/* Mostra funcoes de cada pessoas */
+mostrar_pessoas() :-
+    findall(Cidadao, cidadao(Cidadao), Cidadaos),
+    findall(Assassino, assassino(Assassino), Assassinos),
+    findall(Anjo, anjo(Anjo), Anjos),
+    findall(Detetive, detetive(Detetive), Detetives),
+    format('  Cidadãos: ~w~n', [Cidadaos]),
+    format('  Assassinos: ~w~n', [Assassinos]),
+    format('  Anjos: ~w~n', [Anjos]),
+    format('  Detetives: ~w~n', [Detetives]).

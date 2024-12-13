@@ -10,6 +10,7 @@ numeroNoite(1).
 :- dynamic anjoVivo/1.
 anjoVivo(sim).
 
+:- dynamic fantasma/1, acusado/1.
 
 
 /* Regras */
@@ -54,16 +55,6 @@ nova_rodada() :-
 
 fim_de_jogo() :-
     write(''), nl,
-    format('Milene: TEMOS UM VENCEDOR !!!'), nl,
     [setup].
 
-/* Mostra funcoes de cada pessoas */
-mostrar_pessoas() :-
-    findall(Cidadao, cidadao(Cidadao), Cidadaos),
-    findall(Assassino, assassino(Assassino), Assassinos),
-    findall(Anjo, anjo(Anjo), Anjos),
-    findall(Detetive, detetive(Detetive), Detetives),
-    format('  Cidadãos: ~w~n', [Cidadaos]),
-    format('  Assassinos: ~w~n', [Assassinos]),
-    format('  Anjos: ~w~n', [Anjos]),
-    format('  Detetives: ~w~n', [Detetives]).
+

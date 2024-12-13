@@ -31,6 +31,15 @@ O jogo "Cidade Dorme" é um jogo de dinâmica social, no qual os participantes a
 
 Durante o "dia", os jogadores discutem e tentam deduzir quem são os mafiosos entre eles, votando para eliminar suspeitos. O objetivo principal dos cidadãos é identificar e eliminar os mafiosos, enquanto estes devem permanecer escondidos e eliminar os cidadãos. O jogo combina dedução, estratégia e persuasão, sendo ideal para grupos que gostam de jogos de interação social e argumentação. [2]
 
+### Adaptações do Projeto
+
+O jogo desenvolvido é uma adaptação do clássico "Cidade Dorme", incorporando algumas mudanças para torná-lo mais dinâmico e adequado à proposta tecnológica:
+
+1. Morte do Anjo: Quando o anjo é eliminado, o detetive não pode mais acusá-lo como culpado. Além disso, todos os jogadores são informados durante a noite que o anjo foi eliminado, o que altera as estratégias de dedução.
+2. Uso do Notebook: Para jogar, o notebook deve permanecer com o narrador, que será o único a ler as informações apresentadas no terminal. Isso preserva o sigilo dos papéis e mantém a organização do jogo.
+3. Personagens Pré-Definidos: Os papéis dos jogadores são definidos previamente, e cada participante deve escolher o personagem que deseja interpretar antes do início do jogo. Após essa escolha, os papéis são atribuídos, garantindo uma distribuição clara e equilibrada das funções.
+   Essas adaptações introduzem elementos que facilitam a administração do jogo e reforçam a mecânica de dedução, proporcionando uma experiência adaptada ao contexto digital.
+
 ### Relação do Paradigma Lógico com o Projeto
 
 O jogo "Cidade Dorme" é relacionado ao paradigma lógico, especialmente utilizando a linguagem **Prolog**, devido à sua estrutura baseada em fatos, regras e deduções. No jogo, os participantes assumem papéis (como assassino, detetive e cidadãos), e a interação entre eles envolve a dedução lógica para identificar os mafiosos ou tomar decisões estratégicas. Esse processo de dedução pode ser modelado em Prolog por meio da definição de fatos que representam os papéis de cada jogador e regras que determinam suas ações e consequências.
@@ -47,7 +56,7 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Fluxograma do Projeto
 
-![fluxo cidade dorme](https://github.com/user-attachments/assets/ed774bda-5e18-4680-bcb2-cefbd9c8bf45)
+![fluxo cidade dorme](https://github.com/user-attachments/assets/8c1c8d9d-e95d-42f0-9d16-1450428f45f0)
 
 - OBS: Para maior detalhamento de cada funcionalidade, acesse [esse link](documentacao/passoapasso-uso.md)
 
@@ -71,6 +80,62 @@ Primeiramente certifique-se de que está com Prolog instalado.
 **Para rodar o projeto basta entrar no swipl**: `swipl` ;
 
 **Carregue o arquivo setup.pl pelo comando**: `[setup].` ;
+#### **1. Pré-requisitos**
+
+Certifique-se de que o ambiente de sua máquina atende aos seguintes requisitos:
+
+- **Sistema Operacional**: Linux (recomendado: Ubuntu 20.04 ou superior) ou Windows com WSL habilitado.
+- **Git**: Ferramenta de controle de versão, utilizada para obtenção de código do projeto.
+
+  - Instale com:
+    - **No Linux**:
+      ```bash
+      sudo apt update
+      sudo apt install git
+      ```
+    - **No Windows**: Baixe o instalador em [https://git-scm.com](https://git-scm.com) e siga as instruções de instalação.
+
+- **SWI-Prolog**: Ambiente para execução de Prolog que permite a execução do código.
+  - Instale com:
+    - **No Linux**:
+      ```bash
+      sudo apt update
+      sudo apt install swi-prolog
+      ```
+    - **No Windows**: Baixe o instalador em [https://www.swi-prolog.org](https://www.swi-prolog.org).
+
+#### **2. Clonando o Repositório**
+
+1. Navegue até a pasta onde deseja instalar o projeto:
+
+   ```bash
+   cd /caminho/para/sua/pasta
+   ```
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme.git
+   ```
+
+3. Acesse o arquivo:
+   ```bash
+   cd 2024.2-G1-Logico-Cidade-Dorme
+   ```
+
+#### **3. Configurando e Executando o Projeto**
+
+1. Inicie o SWI-Prolog No terminal, inicie o ambiente SWI-Prolog com o comando:
+
+   ```prolog
+   swipl
+   ```
+
+2. Carregue o Arquivo de Configuração Após entrar no SWI-Prolog, carregue o arquivo de setup:
+
+   ```prolog
+   ?- [setup].
+   ```
 
 ## Vídeo
 
@@ -96,15 +161,34 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 ### Lições Aprendidas
 
 -
+#### Subgrupo 1 (Augusto D. Camargo & Arthur Ferreira & Arthur Lima):
+
+1. **Compreensão da Lógica Declarativa**: Prolog é uma linguagem baseada em lógica declarativa, o que nos ensina a descrever "o que" queremos alcançar, em vez de "como" alcançá-lo. Isso requeriu o exercício de uma nova forma de pensar em termos de relações lógicas e regras.
+2. **Trabalho com Estruturas de Dados em Prolog**: Aprendemos a lidar com listas, fatos e regras, manipulando esses elementos para representar o estado do jogo e as interações entre os jogadores.
+3. **Desenvolvimento de Algoritmos de Interação e Controle de Fluxo**: Criar um jogo requer controle cuidadoso do fluxo de jogo e das interações entre os jogadores. Desenvolvemos algoritmos para gerenciar turnos, verificar condições de vitória e coordenar ações dos jogadores.
+4. **Debugging e Testes em Prolog**: Identificar e corrigir erros em Prolog pode ser desafiador. Desenvolvemos novas estratégias para testar e depurar o código, como o uso de rastreamento para entender o fluxo lógico.
+
+#### Subgrupo 2 (Artur Seppa Reiman & Guilherme Peixoto):
+
+1. **Adaptação à Sintaxe de Prolog:** A sintaxe de Prolog, diferente das linguagens tradicionais, nos desafiou a pensar de forma mais precisa na estrutura lógica das regras e consultas.
+2. **Uso de Predicados para Resolver Problemas:** Entendemos como construir e combinar predicados para modelar situações complexas, como estados do jogo e condições de vitória.
+3. **Pensamento Lógico Aplicado ao Debugging:** A depuração em Prolog nos forçou a pensar logicamente sobre cada etapa do código, ajudando a identificar problemas antes que eles afetassem o fluxo do jogo.
 
 ### Percepções
 
 -
+- Linguagem com uma curva de aprendizado íngrime.
+- Sintaxe declarativa pode ser um desafio pra quem vem de linguágens orientadas a objeto.
+- É interessante para modelar sitemas baseados em regras, em que são utilizadas um conjunto de regras lógicas para serem tomadas decisões
 
 ### Contribuições e Fragilidades
 
 - Contribuições:
+- Contribuições:
+- Desenvolvimento do jogo cidade dorme, com regras equivalentes ao jogo na vida real.
+- Soluções declarativas e lógicas foram úteis para modelar as regras de negócio de forma clara e direta.
 - Fragilidades:
+- Adaptação ao paradigma lógico foi um desafio inicial para a equipe, impactando o ritmo de desenvolvimento.
 
 ### Trabalhos Futuros
 

@@ -1,9 +1,18 @@
 /* Carrega os arquivos iniciais */
 :- ['util/ler_linhas'].
-:- [game].
-:- ['tela_inicial/carregar_funcoes'].
 :- ['util/limpar_banco_de_dados'].
-:- ['tela_inicial/tela_inicial'].  % Carregar a tela inicial
+:- ['util/gerais'].
+:- ['code/exibir'].
+:- ['code/carregar_funcoes/carregar_funcoes'].
+:- ['code/adicionar_fantamas'].
+:- ['code/anjo_salvar'].
+:- ['code/assasino_matar'].
+:- ['code/detetive_acusar'].
+:- ['code/escolhas'].
+:- ['code/excluir'].
+:- ['code/menus'].
+:- ['code/regras'].
+:- ['code/verificacoes'].
 
 /* Inicia o jogo com a tela inicial */
-:- tela_inicial.  % Garante que a tela inicial seja exibida
+:- tela_inicial.
