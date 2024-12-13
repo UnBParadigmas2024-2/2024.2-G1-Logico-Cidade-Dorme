@@ -64,6 +64,22 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Instalação
 
+**Linguagens**: <br>
+**Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
+
+- Para instalação do projeto, acesse [esse link](documentacao/passoapassoinstalacao.md) e leia o passo a passo.
+
+### Uso
+
+### Manual
+
+#### Como usar o projeto
+
+Primeiramente certifique-se de que está com Prolog instalado.
+
+**Para rodar o projeto basta entrar no swipl**: `swipl` ;
+
+**Carregue o arquivo setup.pl pelo comando**: `[setup].` ;
 #### **1. Pré-requisitos**
 
 Certifique-se de que o ambiente de sua máquina atende aos seguintes requisitos:
@@ -118,7 +134,7 @@ Certifique-se de que o ambiente de sua máquina atende aos seguintes requisitos:
 2. Carregue o Arquivo de Configuração Após entrar no SWI-Prolog, carregue o arquivo de setup:
 
    ```prolog
-   ?- [setup].
+   [setup].
    ```
 
 ## Vídeo
@@ -134,6 +150,7 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 | Artur Seppa Reiman | Código: Finalização de jogo quando o detetive acusa o assasino; Documentação: Manual de instalação; Trabalhos Futuros; Lições Aprendidas;                                                                                                                                                                                                          | Excelente                                                                      | [Finalização de jogo quando o detetive acusa o assasino](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d324aaff6f39b864635d0d4bdfdba8d74ef553e0); [Manual de instalação](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/15263d5a7468edf717a8fbb2fbadd21c9126a3e1); [Trabalhos Futuros](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d3ada52758188757e8335222ea9dfb2e8dc0a53a); [Lições Aprendidas](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d06e833ac1113314b6dfd5cc66088e4ee3bfd65d);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Augusto Duraes     | Código: Adição e refatoração do menu inicial do jogo, Função inicial de distribuição de personagens no jogo ;Documentação: Motivo escolha do projeto                                                                                                                                                                                               | Excelente                                                                      | [Adição e refatoração do menu inicial do jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/c93b2629235c61e4118c4aebad760cfe14e2446f); [Função inicial de distribuição de personagens no jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/9d50e65d84a931cf21aa5785fba3b393dab93a85); [Motivo escolha do projeto](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d848287afab0ff7704a658bf62e50371636c8201);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Breno              | Código: correções setup inicial, fluxo do assassino matar, fluxo do anjo salvar, verificar se o anjo e fantasma são os mesmos, detetive acusar; Documentação: adaptações feitas no projeto                                                                                                                                                         | Excelente                                                                      | [Correção Setup](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/84ddc999d59c5f45200c6ec2857e0a5b90b20907); [Anjo Salvar Morto](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/e4b2a7f33c4575b5a9f9cfc3116147fedd6574b7); [Verificar fantasma e anjo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd5be27f231a798731c3d028e83c6a5888b3166c); [Adiciona lista personagens que podem ser salvos](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fccee8d93a196d2f6131900c4adf23abf35d2c21); [Assassino mata, anjo salva, detetive acusa](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/2f855a999ed72b306f754e3b9bde7e1787c8e482); [Matar](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd8af2f847f8e5817a34663d373a04baf92ce82c); [Adaptações](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/3dad5e357fec0bf4348e55fd8a17b1598cbcae96)                                                                                                                                     |
+| Edilberto Cantuaria    | Código: ajustes no fluxo do anjo, resolução de bug ao matar cidadão                                                                                                                                                                                                                                                                                | Excelente                                                                      | [Melhorias no fluxo do anjo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/f2ab5040a8cb0a27a06b3f7648058c3a9cd6795b); [Bug ao matar cidadão](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/53d65f71b9420dc16adf1dd9b07f676b900b095a); [Ajustes na documentação](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/4d18520edcf767dc9abbe668afa34d55a26e538f) ; [Correção do caminho para as imagens](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/c28e7445d6029f82fb1985071274629c71aba45e)  |
 | Giulia             | Código: Fluxo do assassino matar qualquer um menos a si mesmo, fluxo do anjo salvar qualquer um menos a si mesmo (se vivo) e não salvar se morto, fluxo do detetive acusar qualquer um menos a si mesmo e ao anjo se tiver morto; Documentação: Sobre o paradigma, sobre o projeto, relação do paradigma com o projeto criação do fluxo do projeto | Excelente                                                                      | [Sobre o paradigma](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/984c6202e820d4d3c30262a26fa47c8c60f2d8de); [Infos do Projeto e Fluxo do jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/06084bfe84a0d487e530ecd9d532abcc3fa057b3); [Assassino Mata](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd8af2f847f8e5817a34663d373a04baf92ce82c); [Anjo Salva](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/e4b2a7f33c4575b5a9f9cfc3116147fedd6574b7); [Case: Anjo morre](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd5be27f231a798731c3d028e83c6a5888b3166c); [Detetive Acusa](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/2f855a999ed72b306f754e3b9bde7e1787c8e482); [Detetive não pode acusar o anjo morto](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d7bd33ab649d08e21b97b83c4f8381f032b226d0); [Adicionando o cargo de acusado](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/01035d8283d7fa4ef8fb52b6fef81a540dc9d776) |
 | Gustavo Barbosa    | Código: ajustes no fluxo do anjo, resolução de bug ao matar. Documentação: Lições aprendidas cidadão                                                                                                                                                                                                                                               | Excelente                                                                      | [Melhorias no fluxo do anjo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/f2ab5040a8cb0a27a06b3f7648058c3a9cd6795b);[Bug ao matar cidadão](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/53d65f71b9420dc16adf1dd9b07f676b900b095a);[Lições aprendidas](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/c3a36393cd7510a709f26372ab014ee486fd3893)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Guilherme Peixoto  | Código: Se detetive acusa o assassino - ganham o jogo (Participação), Se assassino mata todos os cidadãos (menos o detetive) - jogo encerra. Documentação: Trabalhos Futuros; Lições Aprendidas;                                                                                                                                                   | Excelente                                                                      | [jogo finaliza quando assassino mata todos os cidadãos](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/08328668f7cf3699e9001e70cfcdc16558f5d2c8); [Reinicialização do jogo quando assassino mata detetive](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/70947a76adb351f988f17ca387f5a09fc0462d60); [Percepções e contribuições e fragilidades](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/257e76592b2d3c6e0ee395edded759731d49540a); -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -155,41 +172,48 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 1. **Adaptação à Sintaxe de Prolog:** A sintaxe de Prolog, diferente das linguagens tradicionais, nos desafiou a pensar de forma mais precisa na estrutura lógica das regras e consultas.
 2. **Uso de Predicados para Resolver Problemas:** Entendemos como construir e combinar predicados para modelar situações complexas, como estados do jogo e condições de vitória.
 3. **Pensamento Lógico Aplicado ao Debugging:** A depuração em Prolog nos forçou a pensar logicamente sobre cada etapa do código, ajudando a identificar problemas antes que eles afetassem o fluxo do jogo.
+   
+#### Subgrupo 3 (Edilberto Cantuaria & Gustavo Barbosa & Samuel Sato):
+
+1. **Domínio da Lógica Declarativa:** Trabalhar com Prolog nos ensinou a pensar de forma declarativa, focando em descrever o resultado esperado em vez de detalhar os passos para alcançá-lo. Esse paradigma exigiu o desenvolvimento de uma nova forma de raciocínio, baseada em relações e regras lógicas.
+
+2. **Manipulação de Estruturas de Dados:** Aprendemos a utilizar listas, fatos e regras para representar estados de jogo e interações, explorando as capacidades do Prolog para modelar cenários complexos de maneira eficiente.
+
+3. **Criação de Algoritmos Baseados em Lógica:** Projetar e implementar algoritmos em Prolog nos permitiu controlar o fluxo do jogo, gerenciar turnos, verificar condições de vitória e coordenar ações entre os jogadores, consolidando habilidades de planejamento lógico.
+
+4. **Desenvolvimento de Estratégias de Debugging:** A depuração em Prolog demandou abordagens ativas, como o uso de rastreamento lógico para identificar erros e analisar o fluxo do programa, aprimorando nossa capacidade de localizar e resolver problemas de maneira sistemática.
+
+5. **Integração do Pensamento Lógico:** Ao longo do projeto, fortalecemos nossa habilidade de raciocínio lógico que nos possibilitou construir soluções sólidas quanto para garantir a qualidade do código por meio de testes e validações contínuas.
 
 ### Percepções
-
 - Linguagem com uma curva de aprendizado íngrime.
-- Sintaxe declarativa pode ser um desafio pra quem vem de linguágens orientadas a objeto.
+- Sintaxe declarativa pode ser um desafio para quem vem de linguágens orientadas a objeto.
 - É interessante para modelar sitemas baseados em regras, em que são utilizadas um conjunto de regras lógicas para serem tomadas decisões
 
 ### Contribuições e Fragilidades
 
-- Contribuições:
-- Desenvolvimento do jogo cidade dorme, com regras equivalentes ao jogo na vida real.
-- Soluções declarativas e lógicas foram úteis para modelar as regras de negócio de forma clara e direta.
-- Fragilidades:
-- Adaptação ao paradigma lógico foi um desafio inicial para a equipe, impactando o ritmo de desenvolvimento.
+- **Contribuições:**
+  - Desenvolvimento do jogo "Cidade Dorme", com regras equivalentes ao jogo na vida real, adaptadas para a metodologia da disciplina e ao contexto acadêmico.
+  - Soluções declarativas e lógicas foram úteis para modelar as regras de negócio de forma clara e direta.
+  - Aprimoramento das interações entre os jogadores, utilizando algoritmos baseados em lógica para gerenciar turnos e condições de vitória.
+  - Implementação de um fluxo de jogo dinâmico, explorando a dedução lógica para simular as decisões dos participantes.
+  - Utilização eficiente de Prolog para representar papéis dos jogadores e modelar suas interações por meio de fatos e regras.
+
+- **Fragilidades:**
+  - Adaptação ao paradigma lógico foi um desafio inicial para a equipe, impactando o ritmo de desenvolvimento.
+  - Sintaxe declarativa e abordagem lógica do Prolog apresentaram uma curva de aprendizado íngreme, o que impactou o tempo necessário para implementar funcionalidades complexas.
+  - Limitações da equipe em depuração inicial de código Prolog, devido à falta de familiaridade com ferramentas e técnicas específicas de debugging.
+  - Dificuldade em balancear as regras do jogo durante a fase de modelagem, resultando em ajustes posteriores para garantir a equidade e diversão no fluxo do jogo.
+
 
 ### Trabalhos Futuros
 
 A análise do projeto em questão revela a necessidade de aprimoramentos tanto em termos de usabilidade quanto de arquitetura.
 
-Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Haskell:
-
-#### **1. Ampliação de Funcionalidades**
-
-- **Novos papéis no jogo**: Introduzir novos tipos de participantes, como agente duplo, cúmplice ou outros que possam adicionar camadas estratégicas ao jogo.
-- **Regras customizáveis**: Permitir que os usuários personalizem regras e condições, tornando o jogo mais flexível.
-- **Cenários dinâmicos**: Criar diferentes cenários para adicionar variedade às partidas.
-
-#### **2. Interface do Usuário**
-
-- **Interface gráfica**: Desenvolver uma interface gráfica para facilitar a interação com o jogo.
-
-#### **3. Suporte Multiplataforma**
-
-- **Integração com a web**: Disponibilizar o jogo como um serviço online ou em aplicativos móveis.
-- **Compatibilidade com outros sistemas operacionais**: Garantir suporte em diferentes plataformas de maneira otimizada.
+Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Prolog:
+- **Desafio do Einsten:** pode ser utilizado no desafio de lógica de Einstein para modelar as restrições do problema como fatos e regras, permitindo que o motor lógico da linguagem explore todas as combinações possíveis e encontre a solução que satisfaz todas as condições. Essa abordagem automatiza o raciocínio lógico, eliminando inconsistências de forma eficiente.
+- **Simulação de uma torre de controle de um aeroporto:** o Prolog pode ser aplicado ao controle de voos por sua capacidade de lidar com regras, fatos e inferências lógicas, sendo possível modelar rotas, horários, impor restrições de tráfego aéreo, condições meteorológicas e manutenção de aeronaves como fatos e regras além de permitir consultas complexas, como identificar conexões viáveis entre voos, otimizar rotas e garantir a segurança e eficiência no planejamento, utilizando lógica declarativa para verificar restrições e tomar decisões de maneira automatizada.
+- **Adaptação do jogo Akinator**:O jogo Akinator, que adivinha o personagem pensado pelo jogador com base em perguntas e respostas, é um exemplo clássico de aplicação de lógica e inteligência artificial, que, conforme dito anteriormente nesta documentação, é uma das área de aplicação do Prolog. O Akinator pode ser implementado utilizando uma base de conhecimento composta por fatos (personagens e suas características) e regras que relacionam as respostas do usuário às hipóteses. O motor lógico do Prolog permite inferir a solução através de um sistema de perguntas dinâmico, eliminando possibilidades inconsistentes até chegar à resposta correta, tornando-o adequado para construir um sistema baseado em lógica dedutiva e interativa como esse. 
 
 ## Fontes
 
