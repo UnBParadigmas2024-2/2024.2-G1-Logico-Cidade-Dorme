@@ -55,18 +55,16 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Instalação
 
-**Linguagens**: <br>
+**Linguagens**: Prolog
+
 **Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
 
-- Para instalação do projeto, acesse [esse link](documentacao/passoapassoinstalacao.md) e leia o passo a passo.
+- Setup: 
+  - `sudo add-apt-repository ppa:swi-prolog/stable`
+  - `sudo apt-get update`
+  - `sudo apt-get install swi-prolog-core`
 
 ### Uso
-
-### Manual
-
-#### Como usar o projeto
-
-Primeiramente certifique-se de que está com Prolog instalado.
 
 **Para rodar o projeto basta entrar no swipl**: `swipl` ; 
 
@@ -80,10 +78,10 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 | Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios |
 | -- | -- | -- | -- |
-| Arthur Ferreira |  - | - | - |
-| Arthur José |  Setup inicial, Regras para ler linhas de um arquivo, Distribuir papeis e lugares para cada pessoa aleatóriamente, Regra para um mafioso matar alguém e para mostrar pessoas e seus locais de origem   | - | - |
+| Arthur Ferreira |  - | Excelente | - |
+| Arthur José |  Setup inicial, Regras para ler linhas de um arquivo, Distribuir papeis e lugares para cada pessoa aleatóriamente, Regra para um mafioso matar alguém e para mostrar pessoas e seus locais de origem   | Excelente | - |
 | Artur Seppa Reiman |  - | - | - |
-| Augusto Duraes |  - | - | - |                                                                                                                                        
+| Augusto Duraes |  Código: Adição e refatoração do menu inicial do jogo, Função inicial de distribuição de personagens no jogo ;Documentação: Motivo escolha do projeto | Excelente | [Adição e refatoração do menu inicial do jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/c93b2629235c61e4118c4aebad760cfe14e2446f); [Função inicial de distribuição de personagens no jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/9d50e65d84a931cf21aa5785fba3b393dab93a85); [Motivo escolha do projeto](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d848287afab0ff7704a658bf62e50371636c8201); |                                                                                                                                        
 | Breno |  - | - | - |
 | Giulia | Código: Fluxo do assassino matar qualquer um menos a si mesmo, fluxo do anjo salvar qualquer um menos a si mesmo (se vivo) e não salvar se morto, fluxo do detetive acusar qualquer um menos a si mesmo e ao anjo se tiver morto; Documentação: Sobre o paradigma, sobre o projeto, relação do paradigma com o projeto criação do fluxo do projeto | Excelente | [Sobre o paradigma](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/984c6202e820d4d3c30262a26fa47c8c60f2d8de); [Infos do Projeto e Fluxo do jogo](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/06084bfe84a0d487e530ecd9d532abcc3fa057b3); [Assassino Mata](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd8af2f847f8e5817a34663d373a04baf92ce82c); [Anjo Salva](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/e4b2a7f33c4575b5a9f9cfc3116147fedd6574b7); [Case: Anjo morre](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/fd5be27f231a798731c3d028e83c6a5888b3166c); [Detetive Acusa](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/2f855a999ed72b306f754e3b9bde7e1787c8e482); [Detetive não pode acusar o anjo morto](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/d7bd33ab649d08e21b97b83c4f8381f032b226d0); [Adicionando o cargo de acusado](https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme/commit/01035d8283d7fa4ef8fb52b6fef81a540dc9d776) |      
 | Gustavo Barbosa | - | - | - |      
@@ -94,7 +92,15 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 ### Lições Aprendidas
 
-- 
+#### Subgrupo 1 (Augusto D. Camargo & Arthur Ferreira & Arthur Lima):
+
+1. **Compreensão da Lógica Declarativa**: Prolog é uma linguagem baseada em lógica declarativa, o que nos ensina a descrever "o que" queremos alcançar, em vez de "como" alcançá-lo. Isso requeriu o exercício de uma nova forma de pensar em termos de relações lógicas e regras.
+   
+2. **Trabalho com Estruturas de Dados em Prolog**: Aprendemos a lidar com listas, fatos e regras, manipulando esses elementos para representar o estado do jogo e as interações entre os jogadores.
+   
+3. **Desenvolvimento de Algoritmos de Interação e Controle de Fluxo**: Criar um jogo requer controle cuidadoso do fluxo de jogo e das interações entre os jogadores. Desenvolvemos algoritmos para gerenciar turnos, verificar condições de vitória e coordenar ações dos jogadores.
+   
+4. **Debugging e Testes em Prolog**: Identificar e corrigir erros em Prolog pode ser desafiador. Desenvolvemos novas estratégias para testar e depurar o código, como o uso de rastreamento para entender o fluxo lógico.
 
 ### Percepções
 
