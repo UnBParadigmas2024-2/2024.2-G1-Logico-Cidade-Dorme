@@ -55,18 +55,16 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Instalação
 
-**Linguagens**: <br>
+**Linguagens**: Prolog
+
 **Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
 
-- Para instalação do projeto, acesse [esse link](documentacao/passoapassoinstalacao.md) e leia o passo a passo.
+- Setup: 
+  - `sudo add-apt-repository ppa:swi-prolog/stable`
+  - `sudo apt-get update`
+  - `sudo apt-get install swi-prolog-core`
 
 ### Uso
-
-### Manual
-
-#### Como usar o projeto
-
-Primeiramente certifique-se de que está com Prolog instalado.
 
 **Para rodar o projeto basta entrar no swipl**: `swipl` ; 
 
