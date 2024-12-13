@@ -55,20 +55,62 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ### Instalação
 
-**Linguagens**: Prolog
+#### **1. Pré-requisitos**
 
-**Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
+Certifique-se de que o ambiente de sua máquina atende aos seguintes requisitos:
 
-- Setup: 
-  - `sudo add-apt-repository ppa:swi-prolog/stable`
-  - `sudo apt-get update`
-  - `sudo apt-get install swi-prolog-core`
+- **Sistema Operacional**: Linux (recomendado: Ubuntu 20.04 ou superior) ou Windows com WSL habilitado.
+- **Git**: Ferramenta de controle de versão, utilizada para obtenção de código do projeto.
 
-### Uso
+  - Instale com:
+    - **No Linux**:
+      ```bash
+      sudo apt update
+      sudo apt install git
+      ```
+    - **No Windows**: Baixe o instalador em [https://git-scm.com](https://git-scm.com) e siga as instruções de instalação.
 
-**Para rodar o projeto basta entrar no swipl**: `swipl` ; 
+- **SWI-Prolog**: Ambiente para execução de Prolog que permite a execução do código.
+  - Instale com:
+    - **No Linux**:
+      ```bash
+      sudo apt update
+      sudo apt install swi-prolog
+      ```
+    - **No Windows**: Baixe o instalador em [https://www.swi-prolog.org](https://www.swi-prolog.org).
 
-**Carregue o arquivo setup.pl pelo comando**: `[setup].` ;
+#### **2. Clonando o Repositório**
+
+1. Navegue até a pasta onde deseja instalar o projeto:
+
+   ```bash
+   cd /caminho/para/sua/pasta
+   ```
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/UnBParadigmas2024-2/2024.2-G1-Logico-Cidade-Dorme.git
+   ```
+
+3. Acesse o arquivo:
+   ```bash
+   cd 2024.2-G1-Logico-Cidade-Dorme
+   ```
+
+#### **3. Configurando e Executando o Projeto**
+
+1. Inicie o SWI-Prolog No terminal, inicie o ambiente SWI-Prolog com o comando:
+
+   ```prolog
+   swipl
+   ```
+
+2. Carregue o Arquivo de Configuração Após entrar no SWI-Prolog, carregue o arquivo de setup:
+
+   ```prolog
+   ?- [setup].
+   ```
 
 ## Vídeo
 
@@ -115,10 +157,20 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 A análise do projeto em questão revela a necessidade de aprimoramentos tanto em termos de usabilidade quanto de arquitetura.
 
-- 
 Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Haskell:
 
-- 
+#### **1. Ampliação de Funcionalidades**
+- **Novos papéis no jogo**: Introduzir novos tipos de participantes, como agente duplo, cúmplice ou outros que possam adicionar camadas estratégicas ao jogo.  
+- **Regras customizáveis**: Permitir que os usuários personalizem regras e condições, tornando o jogo mais flexível.  
+- **Cenários dinâmicos**: Criar diferentes cenários para adicionar variedade às partidas.
+
+#### **2. Interface do Usuário**
+- **Interface gráfica**: Desenvolver uma interface gráfica para facilitar a interação com o jogo.  
+
+#### **3. Suporte Multiplataforma**
+- **Integração com a web**: Disponibilizar o jogo como um serviço online ou em aplicativos móveis.  
+- **Compatibilidade com outros sistemas operacionais**: Garantir suporte em diferentes plataformas de maneira otimizada.
+
 ## Fontes
 
 [1] TRIPLETEN. Paradigmas de programação: o que são e quais os principais? _TripleTen_, [s.d.]. Disponível em: <https://tripleten.com.br/blog/paradigmas-de-programacao-o-que-sao-e-quais-os-principais/#:~:text=Al%C3%A9m%20do%20paradigma%20imperativo%20e,a%20partir%20das%20informa%C3%A7%C3%B5es%20fornecidas>. Acesso em: 18 nov. 2024.
