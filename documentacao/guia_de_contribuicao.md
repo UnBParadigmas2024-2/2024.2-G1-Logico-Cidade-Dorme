@@ -16,16 +16,16 @@ Assim todos arquivos e chamadas serão iniciadas.
 
 ### Iniciando os arquivos e chamadas:
 
-![alt text](assets/exemplos_guia_contribuicao/image-1.png)
+![Iniciando os arquivos e chamadas](../assets/exemplos_guia_contribuicao/image-1.png)
 
 ### Verificando pessoas no lugar:
 
-![alt text](assets/exemplos_guia_contribuicao/image-2.png)
+![Verificando pessoas no lugar](../assets/exemplos_guia_contribuicao/image-2.png)
 
 ### Criando uma ação pro jogo
 
-![alt text](assets/exemplos_guia_contribuicao/image-3.png)
+![Criando uma ação pro jogo](../assets/exemplos_guia_contribuicao/image-3.png)
 
-### Verificando se o breno sumiu mesmo
+### Verificando se o Breno sumiu mesmo
 
-![alt text](assets/exemplos_guia_contribuicao/image-4.png)
+![Verificando se o Breno sumiu mesmo](../assets/exemplos_guia_contribuicao/image-4.png)
