@@ -146,12 +146,17 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 ### Percepções
 
-- 
+- Linguagem com uma curva de aprendizado íngrime.
+- Sintaxe declarativa pode ser um desafio pra quem vem de linguágens orientadas a objeto.
+- É interessante para modelar sitemas baseados em regras, em que são utilizadas um conjunto de regras lógicas para serem tomadas decisões
 
 ### Contribuições e Fragilidades
 
-- Contribuições: 
+- Contribuições:
+- Desenvolvimento do jogo cidade dorme, com regras equivalentes ao jogo na vida real.
+- Soluções declarativas e lógicas foram úteis para modelar as regras de negócio de forma clara e direta.
 - Fragilidades:
+- Adaptação ao paradigma lógico foi um desafio inicial para a equipe, impactando o ritmo de desenvolvimento. 
 
 ### Trabalhos Futuros
 
