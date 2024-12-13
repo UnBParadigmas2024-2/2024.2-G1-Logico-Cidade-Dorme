@@ -69,7 +69,6 @@ assassino_matar() :-
         bagof(D, detetive(D), [Detetive | _]),
         downcase_atom(Detetive, DetetiveLower),
         (NomeEscolhidoLower = DetetiveLower ->
-            % Se matou o detetive, assassino vence
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
             definir_vencedor(assassino),
@@ -83,13 +82,24 @@ assassino_matar() :-
             % Se não matou o detetive, continua normalmente
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
-            (anjo(Vivo) ->  matar_anjo; true)
+            (anjo(Vivo) ->  matar_anjo; true),
+
+            (todos_cidadaos_mortos ->
+                retractall(vencedor(_)),
+                assertz(vencedor(assassino)),
+                write(''), nl,
+                write('=============================='), nl,
+                write('O assassino matou todos os cidadãos!'), nl,
+                write('O assassino venceu o jogo!'), nl,
+                write('=============================='), nl,
+                fim_de_jogo
+            ;   true  % Continue game normally,
+            )
+
         )
     ;
         writeln('Nome inválido ou pessoa não encontrada.')
     ).
-
-
 
 adicionar_fantasma(Pessoa) :-
     assertz(fantasma(Pessoa)),  % Adiciona a pessoa como fantasma,
@@ -113,6 +123,11 @@ anjo_salvar() :-
         detetive_acusar
     ).
 
+todos_cidadaos_mortos :-
+    % Get all citizens
+    bagof(C, cidadao(C), Cidadaos),
+    % Check if none of them are alive
+    \+ (member(Cidadao, Cidadaos), vivo(Cidadao)).
 
 verificar_fantasma_e_anjos :-
     (   
@@ -132,10 +147,29 @@ detetive_acusar() :-
     mostrar_vivos_exceto_detetives,
     read(NomeEscolhido),  % Lê o nome escolhido pelo detetive
     downcase_atom(NomeEscolhido, EscolhidoLower),  % Converte o nome para minúsculas
-    assertz(acusado(EscolhidoLower)),  % Adiciona o nome do acusado
-    retractall(fantasma(_)),  % Remove qualquer informação sobre fantasmas
-    write(''), nl,
-    format('~w foi acusado!~n', [NomeEscolhido]).
+    (   
+        assassino(Assassino),  % Obtém o nome do assassino
+        downcase_atom(Assassino, AssassinoLower),
+        EscolhidoLower = AssassinoLower
+    ->  
+        write(''), nl,
+        write('=============================='), nl,
+        write('Parabéns detetive !! Você acertou o assassino!'), nl,
+        write(''), nl,
+        write('A cidade está em paz novamente graças à sua brilhante dedução.'), nl,
+        write('Prepare-se para mais desafios no futuro!'), nl,
+        write(''), nl,
+        write('Jogo encerrado!'), nl,
+        write('=============================='), nl,
+        fim_de_jogo
+    ;   
+        % Detetive errou, jogo continua
+        write(''), nl,
+        write('=============================='), nl,
+        write('O detetive acusou a pessoa errada!'), nl,
+        write('O jogo continua...'), nl,
+        write('=============================='), nl
+    ).
 
 
 /* Iniciar Jogo */
