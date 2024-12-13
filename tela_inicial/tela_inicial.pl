@@ -69,7 +69,6 @@ assassino_matar() :-
         bagof(D, detetive(D), [Detetive | _]),
         downcase_atom(Detetive, DetetiveLower),
         (NomeEscolhidoLower = DetetiveLower ->
-            % Se matou o detetive, assassino vence
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
             definir_vencedor(assassino),
@@ -83,7 +82,20 @@ assassino_matar() :-
             % Se não matou o detetive, continua normalmente
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
-            (anjo(Vivo) ->  matar_anjo; true)
+            (anjo(Vivo) ->  matar_anjo; true),
+
+            (todos_cidadaos_mortos ->
+                retractall(vencedor(_)),
+                assertz(vencedor(assassino)),
+                write(''), nl,
+                write('=============================='), nl,
+                write('O assassino matou todos os cidadãos!'), nl,
+                write('O assassino venceu o jogo!'), nl,
+                write('=============================='), nl,
+                fim_de_jogo
+            ;   true  % Continue game normally,
+            )
+
         )
     ;
         writeln('Nome inválido ou pessoa não encontrada.')
@@ -113,6 +125,11 @@ anjo_salvar() :-
         detetive_acusar
     ).
 
+todos_cidadaos_mortos :-
+    % Get all citizens
+    bagof(C, cidadao(C), Cidadaos),
+    % Check if none of them are alive
+    \+ (member(Cidadao, Cidadaos), vivo(Cidadao)).
 
 verificar_fantasma_e_anjos :-
     (   
