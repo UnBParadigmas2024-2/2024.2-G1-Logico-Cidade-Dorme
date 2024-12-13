@@ -72,13 +72,13 @@ assassino_matar() :-
             % Se matou o detetive, assassino vence
             retract(vivo(Vivo)),
             adicionar_fantasma(Vivo),
-            fim_de_jogo,
             definir_vencedor(assassino),
             write(''), nl,
             write('=============================='), nl,
             write('O assassino matou o detetive!'), nl,
             write('O assassino venceu o jogo!'), nl,
-            write('=============================='), nl
+            write('=============================='), nl,
+            fim_de_jogo
         ;   
             % Se não matou o detetive, continua normalmente
             retract(vivo(Vivo)),
