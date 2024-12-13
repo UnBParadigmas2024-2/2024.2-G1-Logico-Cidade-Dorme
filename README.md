@@ -115,10 +115,20 @@ Vídeo disponível no [link](https://youtu.be/W71J1-5DlYg).
 
 A análise do projeto em questão revela a necessidade de aprimoramentos tanto em termos de usabilidade quanto de arquitetura.
 
-- 
 Como sugestão para trabalhos futuros, além do presente projeto, propõem-se as seguintes implementações em Haskell:
 
-- 
+#### **1. Ampliação de Funcionalidades**
+- **Novos papéis no jogo**: Introduzir novos tipos de participantes, como agente duplo, cúmplice ou outros que possam adicionar camadas estratégicas ao jogo.  
+- **Regras customizáveis**: Permitir que os usuários personalizem regras e condições, tornando o jogo mais flexível.  
+- **Cenários dinâmicos**: Criar diferentes cenários para adicionar variedade às partidas.
+
+#### **2. Interface do Usuário**
+- **Interface gráfica**: Desenvolver uma interface gráfica para facilitar a interação com o jogo.  
+
+#### **3. Suporte Multiplataforma**
+- **Integração com a web**: Disponibilizar o jogo como um serviço online ou em aplicativos móveis.  
+- **Compatibilidade com outros sistemas operacionais**: Garantir suporte em diferentes plataformas de maneira otimizada.
+
 ## Fontes
 
 [1] TRIPLETEN. Paradigmas de programação: o que são e quais os principais? _TripleTen_, [s.d.]. Disponível em: <https://tripleten.com.br/blog/paradigmas-de-programacao-o-que-sao-e-quais-os-principais/#:~:text=Al%C3%A9m%20do%20paradigma%20imperativo%20e,a%20partir%20das%20informa%C3%A7%C3%B5es%20fornecidas>. Acesso em: 18 nov. 2024.
