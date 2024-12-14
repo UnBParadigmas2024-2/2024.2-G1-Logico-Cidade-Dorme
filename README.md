@@ -62,17 +62,6 @@ Saiba mais sobre a escolha do projeto através [desse link](documentacao/motivos
 
 ## Manual
 
-### Instalação
-
-**Linguagens**: <br>
-**Tecnologias**: Sistema Operacional , Compilador, Editor de Texto , Terminal <br>
-
-- Para instalação do projeto, acesse [esse link](documentacao/passoapassoinstalacao.md) e leia o passo a passo.
-
-### Uso
-
-### Manual
-
 #### Como usar o projeto
 
 Primeiramente certifique-se de que está com Prolog instalado.
