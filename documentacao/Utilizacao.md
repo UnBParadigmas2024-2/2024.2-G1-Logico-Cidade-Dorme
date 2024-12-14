@@ -1,4 +1,4 @@
-#Exemplos de funcionalidade do jogo cidade dorme
+# Exemplos de funcionalidade do jogo cidade dorme
 
 1. Assassinato de cidadãos:
     ![assassinatos](/assets/gifs/assassinato.gif)
