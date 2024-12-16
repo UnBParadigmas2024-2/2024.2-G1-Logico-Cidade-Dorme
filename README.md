@@ -23,7 +23,7 @@
 
 O paradigma lógico é O paradigma lógico é um estilo de programação baseado na lógica matemática. Nele, o programador define **regras lógicas** e **relações entre elementos**, especificando as condições que devem ser verdadeiras para resolver um problema. O sistema, então, **deduz automaticamente a solução** com base nessas regras, em vez de seguir uma sequência de comandos. Prolog é a principal linguagem associada a esse paradigma, sendo amplamente utilizada em áreas como **inteligência artificial** e **processamento de linguagem natural**. [1]
 
-Aprenda mais sobre o Paradigma Lógico [aqui](documentacao/vantagens_desvantagens.md)
+Aprenda mais sobre o Paradigma Lógico [aqui](documentacao/desvantangens.md) e [aqui](documentacao/vantagens.md)
 
 ## Sobre o Projeto
 
